@@ -10,11 +10,11 @@ import 'on_boarding_repo.mock.dart';
 void main() {
 
   late OnBoardingRepository onBoardingRepository;
-  late CheckIfUserFirstTime checkIfUserFirstTime;
+  late CheckIfUserFirstTimeUseCase checkIfUserFirstTime;
 
   setUp(() {
     onBoardingRepository = MockOnBoardingRepository();
-    checkIfUserFirstTime = CheckIfUserFirstTime(
+    checkIfUserFirstTime = CheckIfUserFirstTimeUseCase(
       onBoardingRepository: onBoardingRepository,);
   });
 
