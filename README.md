@@ -2,7 +2,7 @@
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
 EduEra is an education application created by flutter framework that has lots of functionalities.
-Using clean architecture and bloc as the business logic.
+Using clean architecture, TDD and bloc as the business logic.
 
 Main features
 
