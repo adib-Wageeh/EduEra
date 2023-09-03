@@ -22,8 +22,14 @@ class OnBoardingRepositoryImpl implements OnBoardingRepository{
   }
 
   @override
-  ResultFuture<bool> checkIfUserFirstTime() {
-    throw UnimplementedError();
+  ResultFuture<bool> checkIfUserFirstTime() async{
+
+    try {
+      final result = await dataSource.checkIfUserFirstTime();
+      return Right(result);
+    }on CacheException catch (e){
+      return Left(CacheFailure(error: e.error, code: e.code));
+    }
   }
 
 

@@ -53,4 +53,37 @@ void main() {
 
   });
 
+  group('check if user first time', () {
+
+    test('should complete successfully and return a bool value', () async{
+
+      when(()=>
+          onBoardingLocalDataSource.checkIfUserFirstTime(),
+      ).thenAnswer((invocation) async=> true);
+
+      final result = await onBoardingRepositoryImpl.checkIfUserFirstTime();
+
+      expect(result, const Right<dynamic,bool>(true));
+      verify(()=>onBoardingLocalDataSource.checkIfUserFirstTime()).called(1);
+      verifyNoMoreInteractions(onBoardingLocalDataSource);
+    });
+
+    test('should return a cache exception when call to local '
+        'source unsuccessfully', () async{
+
+      when(()=>
+          onBoardingLocalDataSource.checkIfUserFirstTime(),
+      ).thenThrow(const CacheException(error: 'no storage available', code: 400
+        ,),);
+
+      final result = await onBoardingRepositoryImpl.checkIfUserFirstTime();
+
+      expect(result, const Left<CacheFailure,void>(CacheFailure(
+        error: 'no storage available',code: 400,),),);
+      verify(()=>onBoardingLocalDataSource.checkIfUserFirstTime()).called(1);
+      verifyNoMoreInteractions(onBoardingLocalDataSource);
+    });
+
+  });
+
 }
