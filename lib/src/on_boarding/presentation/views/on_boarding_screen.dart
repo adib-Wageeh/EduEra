@@ -42,9 +42,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               PageView(
                 controller: pageController,
                 children: [
-                  OnBoardingBody(pageContent: PageContent.first()),
-                  OnBoardingBody(pageContent: PageContent.second()),
-                  OnBoardingBody(pageContent: PageContent.third())
+                  OnBoardingBody(pageContent: PageContent.first(),
+                      pageController: pageController,),
+                  OnBoardingBody(pageContent: PageContent.second(),
+                  pageController: pageController,),
+                  OnBoardingBody(pageContent: PageContent.third(),
+                  pageController: pageController,)
                 ],
               ),
               Align(

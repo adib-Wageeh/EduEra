@@ -1,0 +1,12 @@
+{
+  "email":"",
+  "fullName":"",
+  "points":0,
+  "uId":"",
+  "bio":null,
+  "enrolledCoursesIds":[],
+  "followed":[],
+  "following":[],
+  "joinedGroupsIds":[],
+  "profilePic":null
+}

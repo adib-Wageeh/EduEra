@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class PageContent extends Equatable{
 
   const PageContent({required this.title,required this.image,
-    required this.subTitle,});
+    required this.subTitle,required this.index,});
 
   factory PageContent.first(){
 
@@ -13,6 +13,7 @@ class PageContent extends Equatable{
         , subTitle: 'This is the first online education platform'
             ' designed by the '
     "world's top professors ",
+      index: 0,
     );
   }
 
@@ -22,6 +23,7 @@ class PageContent extends Equatable{
       image: MediaRes.casualLife
       , subTitle: 'This is the first online education platform designed by the '
           "world's top professors",
+      index: 1,
     );
   }
 
@@ -31,15 +33,17 @@ class PageContent extends Equatable{
       image: MediaRes.casualMeditationScience
       , subTitle: 'This is the first online education platform designed by the '
           "world's top professors",
+      index: 2,
     );
   }
 
   final String image;
   final String title;
   final String subTitle;
+  final int index;
   
   @override
-  List<Object?> get props => [image,title,subTitle];
+  List<Object?> get props => [image,title,subTitle,index];
 
 
 
