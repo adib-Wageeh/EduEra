@@ -4,7 +4,7 @@ class ServerException extends Equatable implements Exception{
 
   const ServerException({required this.error,required this.code});
   final String error;
-  final int code;
+  final String code;
 
   @override
   List<Object?> get props => [error,code];
