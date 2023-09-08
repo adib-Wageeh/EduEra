@@ -2,6 +2,7 @@ import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/gradient_background.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
+import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:education_app/src/on_boarding/domain/entities/page_content.dart';
 import 'package:education_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:education_app/src/on_boarding/presentation/widgets/on_boarding_body.dart';
@@ -77,7 +78,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         }, listener: (context,state){
           if(state is OnBoardingStatus && !state.isFirstTime)
           {
-            Navigator.pushReplacementNamed(context, '/home');
+            Navigator.pushReplacementNamed(context, DashboardScreen.route);
+          }else if(state is UserCached){
+            Navigator.pushReplacementNamed(context, '/');
+
           }
         },),
       ),

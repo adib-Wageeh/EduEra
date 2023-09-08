@@ -1,35 +1,18 @@
-
 import 'package:education_app/core/common/views/page_construction.dart';
+import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/core/utils/constants.dart';
+import 'package:education_app/src/authentication/data/models/user_model.dart';
+import 'package:education_app/src/authentication/presentation/bloc/auth_bloc.dart';
+import 'package:education_app/src/authentication/presentation/views/sign_in_view.dart';
+import 'package:education_app/src/authentication/presentation/views/sign_up_view.dart';
+import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:education_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:education_app/src/on_boarding/presentation/views/on_boarding_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart' as fui;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-Route<dynamic> generateFunction(RouteSettings routeSettings){
-
-  switch(routeSettings.name){
-
-    case OnBoardingScreen.route:
-      return _pageBuilder((_)=>BlocProvider(
-  create: (_)=> sl<OnBoardingCubit>(),
-  child: const OnBoardingScreen(),),
-      settings: routeSettings,
-      );
-
-    default:
-      return _pageBuilder((_) => const PageUnderConstructionScreen(),
-          settings: routeSettings,);
-
-  }
-
-}
-
-PageRouteBuilder<dynamic> _pageBuilder(Widget Function(BuildContext) page,
-    {required RouteSettings settings,}){
-return PageRouteBuilder(
-settings: settings,
-transitionsBuilder: (_,animation,__,child)=> FadeTransition(opacity: animation,
-    child: child,)
-,pageBuilder: (context,_,__)=> page(context),);
-}
+part 'router.main.dart';

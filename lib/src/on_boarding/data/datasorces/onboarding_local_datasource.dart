@@ -1,4 +1,5 @@
 import 'package:education_app/core/errors/exceptions.dart';
+import 'package:education_app/core/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class OnBoardingLocalDataSource{
@@ -9,7 +10,6 @@ abstract class OnBoardingLocalDataSource{
   Future<bool> checkIfUserFirstTime();
 
 }
-const sharedPrefsKey = 'key';
 class OnBoardingLocalDataSourceImpl implements OnBoardingLocalDataSource{
 
   OnBoardingLocalDataSourceImpl({required this.sharedPreferences});
