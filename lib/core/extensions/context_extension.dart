@@ -1,6 +1,6 @@
+import 'package:education_app/core/common/app/providers/tab_navigator.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/src/authentication/data/models/user_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,5 +24,15 @@ extension ContextExtension on BuildContext{
   }
 
   UserModel? get currentUser => getUserProvider.user;
+
+  TabNavigator get tabNavigator => read<TabNavigator>();
+
+  void pushTab(Widget tab){
+    return tabNavigator.push(TabItem(child: tab));
+  }
+
+  void popTab(){
+    return tabNavigator.pop();
+  }
 
 }
