@@ -32,7 +32,7 @@ class DashBoardController extends ChangeNotifier{
     ChangeNotifierProvider(
       create: (_)=>
           TabNavigator(
-            TabItem(child: const ProfileView()),
+            TabItem(child: const ProfileView(),),
           ),
       child: const PersistentView(),
     ),

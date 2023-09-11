@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:education_app/core/common/widgets/PopUpMenuItem.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/src/authentication/presentation/bloc/auth_bloc.dart';
+import 'package:education_app/src/profile/presentation/views/edit_profile_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class AppBarWidget extends StatelessWidget
@@ -27,7 +30,7 @@ class AppBarWidget extends StatelessWidget
           icon: const Icon(Icons.more_horiz),
           surfaceTintColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20)
+            borderRadius: BorderRadius.circular(20),
           ),
           itemBuilder: (_)=>[
              PopupMenuItem(
@@ -35,7 +38,11 @@ class AppBarWidget extends StatelessWidget
                   text: 'Edit Profile',
                   icon: Icons.edit_outlined,
                 ),
-              onTap: ()=>context.pushTab(const Placeholder()),
+              onTap: ()=>context.pushTab(
+                  BlocProvider(
+    create: (_)=>sl<AuthBloc>()
+    ,child: const EditProfileView(),),
+              ),
             ),
             PopupMenuItem(
               child:const PopUpItem(

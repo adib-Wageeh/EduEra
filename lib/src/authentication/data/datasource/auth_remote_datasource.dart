@@ -92,9 +92,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
     final userCred = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email, password: password,);
 
-    await userCred.user?.updateDisplayName(fullName);
-    await userCred.user?.updatePhotoURL(kDefaultAvatar);
-    await _setUserData(userCred.user!, email);
+    await userCred.user!.updateDisplayName(fullName);
+    await userCred.user!.updatePhotoURL(kDefaultAvatar);
+    await _setUserData(_firebaseAuth.currentUser!, email);
 
     }on FirebaseAuthException catch(e){
   throw ServerException(error: e.message??'error unknown',

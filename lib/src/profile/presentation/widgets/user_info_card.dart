@@ -18,7 +18,6 @@ class UserInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 84,
-      width: 156,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFFE4E6EA)),
         borderRadius: BorderRadius.circular(20),
