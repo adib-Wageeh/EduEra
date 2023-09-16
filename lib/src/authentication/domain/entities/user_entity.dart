@@ -15,6 +15,8 @@ class UserEntity extends Equatable{
       points: 0, uiD: '',);
   }
 
+  bool get isAdmin => email == 'adib12321wageh@gmail.comm';
+
   final String uiD;
   final String email;
   final String? profilePic;

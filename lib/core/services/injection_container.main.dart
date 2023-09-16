@@ -9,6 +9,20 @@ Future<void> init()async{
 
  await _authInit();
 
+ await _courseInit();
+}
+
+Future<void> _courseInit()async{
+
+  sl..registerFactory(() => CourseCubit(addCourseUseCase: sl()
+    ,getCoursesUseCase: sl(),),)
+    ..registerLazySingleton(() => AddCourseUseCase(courseRepository: sl()),)
+    ..registerLazySingleton(() => GetCoursesUseCase(courseRepository: sl()),)
+    ..registerLazySingleton<CourseRepository>(()=>
+        CourseRepositoryImplementation(courseRemoteDataSource: sl()),)
+    ..registerLazySingleton<CourseRemoteDataSource>(
+            () => CourseRemoteDataSourceImpl(auth: sl(),firestore: sl()
+              ,storage: sl(),),);
 
 }
 

@@ -10,7 +10,6 @@ import 'package:education_app/src/authentication/presentation/bloc/auth_bloc.dar
 import 'package:education_app/src/profile/presentation/widgets/edit_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 
 class EditProfileView extends StatefulWidget {
   const EditProfileView({super.key});
@@ -28,14 +27,7 @@ class _EditProfileViewState extends State<EditProfileView> {
   final oldPasswordController = TextEditingController();
   File? pickedImage;
 
-  Future<void> pickImage()async{
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if(image != null) {
-      setState(() {
-        pickedImage = File(image.path);
-      });
-    }
-  }
+
 
   @override
   void initState() {
@@ -68,6 +60,15 @@ class _EditProfileViewState extends State<EditProfileView> {
   bool get nothingChanged =>
   !nameChanged && !emailChanged && !bioChanged && !passwordChanged
       && !imageChanged;
+
+  Future<void> selectImage()async{
+   final image = await CoreUtils.pickImage();
+   setState(() {
+     pickedImage = image;
+   });
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +190,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       ),
                       child: Center(
                         child: IconButton(
-                          onPressed: pickImage,
+                          onPressed: selectImage,
                           icon: Icon(
                               (pickedImage != null || user.profilePic != null)?
                                   Icons.edit:Icons.add_a_photo,

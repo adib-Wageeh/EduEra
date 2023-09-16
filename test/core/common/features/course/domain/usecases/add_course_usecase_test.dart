@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/common/features/course/domain/repositories/course_repo.dart';
-import 'package:education_app/core/common/features/course/domain/usecases/add_course_usecase.dart';
+import 'package:education_app/core/common/features/course/domain/use-cases/add_course_use_case.dart';
 import 'package:education_app/core/errors/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

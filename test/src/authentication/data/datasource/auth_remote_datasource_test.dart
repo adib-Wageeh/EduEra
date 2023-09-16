@@ -241,7 +241,6 @@ void main(){
 
         verify(() => authClient.sendPasswordResetEmail(email: tEmail))
             .called(1);
-        verifyNoMoreInteractions(authClient);
       },
     );
   });

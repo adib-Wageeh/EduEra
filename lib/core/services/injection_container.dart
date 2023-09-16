@@ -1,4 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:education_app/core/common/features/course/data/datasourses/course_remote_data_source.dart';
+import 'package:education_app/core/common/features/course/data/repository/course_repository_impl.dart';
+import 'package:education_app/core/common/features/course/domain/repositories/course_repo.dart';
+import 'package:education_app/core/common/features/course/domain/use-cases/add_course_use_case.dart';
+import 'package:education_app/core/common/features/course/domain/use-cases/get_courses_use_case.dart';
+import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/src/authentication/data/datasource/auth_remote_datasource.dart';
 import 'package:education_app/src/authentication/data/repository/auth_repository_impl.dart';
 import 'package:education_app/src/authentication/domain/repositories/authentication_repository.dart';

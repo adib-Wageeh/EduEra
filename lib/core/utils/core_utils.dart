@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:education_app/core/res/colours.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CoreUtils{
 
@@ -20,6 +23,25 @@ class CoreUtils{
         margin: const EdgeInsets.all(10),
       ),);
 
+  }
+
+  static void showLoadingDialog(BuildContext context){
+
+    showDialog<void>(
+    barrierDismissible: false
+    ,context: context, builder: (_){
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },);
+  }
+
+  static Future<File?> pickImage()async{
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if(image != null) {
+        return File(image.path);
+    }
+    return null;
   }
 
 }
