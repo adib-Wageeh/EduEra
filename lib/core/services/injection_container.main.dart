@@ -10,6 +10,8 @@ Future<void> init()async{
  await _authInit();
 
  await _courseInit();
+
+ await _initVideo();
 }
 
 Future<void> _courseInit()async{
@@ -66,4 +68,18 @@ Future<void> _authInit()async{
   ..registerLazySingleton(() => storagePrefs)
   ..registerLazySingleton(() => firestorePrefs)
   ..registerLazySingleton(() => authPrefs);
+}
+
+Future<void> _initVideo()async{
+
+  sl..registerFactory(() => VideoCubit(
+    addVideo: sl(),getVideos: sl(),),)
+      ..registerLazySingleton(() => AddVideoUseCase(
+        videoRepository: sl(),),)
+      ..registerLazySingleton(() => GetCoursesUseCase(courseRepository: sl()))
+      ..registerLazySingleton<VideoRepository>(() =>
+          VideoRepositoryImpl(videoRemoteDataSource: sl(),),)
+      ..registerLazySingleton<VideoRemoteDataSource>(
+          () => VideoRemoteDataSourceImpl(firestore: sl(),firebaseStorage:sl(),
+          firebaseAuth: sl(),),);
 }

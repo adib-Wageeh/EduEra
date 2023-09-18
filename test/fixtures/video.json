@@ -1,0 +1,12 @@
+{
+"id":"_empty.id",
+"courseId":"_empty.courseId",
+"videoUrl":"_empty.videoUrl",
+"uploadDate":{
+    "_seconds": 123456,
+    "nanoseconds": 123456
+  },
+"thumbnail": null,
+"title": null,
+"tutor": null
+}

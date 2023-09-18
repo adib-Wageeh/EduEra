@@ -31,10 +31,9 @@ class ServerFailure extends Failure{
 
   const ServerFailure({required super.error,required super.code});
 
-  CacheFailure convertException(ServerException serverException){
-    return CacheFailure(error: serverException.error,
-        code: serverException.code,);
-  }
+  ServerFailure.fromException(ServerException exception)
+      : this(error: exception.error, code: exception.code);
+
 
 }
 
