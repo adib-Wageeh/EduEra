@@ -61,6 +61,7 @@ class MediaRes{
   static const languageIcon = '$_baseIcon/translation.png';
   static const literatureIcon = '$_baseIcon/write.png';
 
+
   static const scoreboard = '$_baseIcon/scoreboard.png';
 
   static const goldCrown = '$_baseIcon/crown.png';

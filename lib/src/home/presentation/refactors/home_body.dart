@@ -1,11 +1,15 @@
 import 'package:education_app/core/common/app/providers/course_of_the_day_notifier.dart';
+import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/not_found_text.dart';
-import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/core/utils/core_utils.dart';
+import 'package:education_app/src/home/presentation/refactors/home_courses.dart';
+import 'package:education_app/src/home/presentation/refactors/home_header.dart';
+import 'package:education_app/src/home/providers/tinder_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -30,7 +34,6 @@ class _HomeBodyState extends State<HomeBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<CourseCubit,CourseState>(
       builder: (context,state){
-        debugPrint(state.toString());
       if(state is LoadingCourses){
         return const LoadingView();
       }else{
@@ -48,7 +51,13 @@ class _HomeBodyState extends State<HomeBody> {
           return ListView(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             children: [
-
+              ChangeNotifierProvider(
+              create: (_)=> TinderProvider(List<Course>.from(courses)),
+              child: const HomeHeader(),),
+              const SizedBox(
+                height: 20,
+              ),
+              HomeCourses(courses: courses,),
             ],
           );
         }

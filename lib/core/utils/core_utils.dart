@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/res/colours.dart';
+import 'package:education_app/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -42,6 +44,24 @@ class CoreUtils{
         return File(image.path);
     }
     return null;
+  }
+
+  static Widget imageType(String image
+  ,{String replacement = MediaRes.examQuestions,
+      double dimensions = 32,}){
+    if(image.isEmpty){
+      return Image.asset(replacement,
+        height: dimensions,
+        width: dimensions,
+        fit: BoxFit.cover,
+      );
+    }
+    return CachedNetworkImage(
+      imageUrl: image,
+      height: dimensions,
+      width: dimensions,
+      fit: BoxFit.cover,
+    );
   }
 
 }

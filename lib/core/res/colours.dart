@@ -56,4 +56,46 @@ class Colours {
   static const currentUserChatBubbleColourDarker = Color(0xFF1976D2);
 
   static const otherUserChatBubbleColourDarker = Color(0xFFE0E0E0);
+
+  static const List<TinderCardsColors> tinderColors = [
+    TinderCardsColors(backGroundColor: Color(0xFFDA92FC),
+        gradiantBottomColor: Color(0xFF8E96FF),
+        gradiantTopColor: Color(0xFFA06AF9),),
+
+    TinderCardsColors(backGroundColor: Color(0xFFDA92FC),
+      gradiantBottomColor: Color(0xFF9796f0),
+      gradiantTopColor: Color(0xFFFBC7D4),),
+
+    TinderCardsColors(backGroundColor: Color(0xFFDA92FC),
+      gradiantBottomColor: Color(0xFFacb6e5),
+      gradiantTopColor: Color(0xFF86fde8),),
+    TinderCardsColors(backGroundColor: Color(0xFFDA92FC),
+      gradiantBottomColor: Color(0xFFFFF6B7),
+      gradiantTopColor: Color(0xFFF6416C),),
+    TinderCardsColors(backGroundColor: Color(0xFFDA92FC),
+      gradiantBottomColor: Color(0xFFABDCFF),
+      gradiantTopColor: Color(0xFF0396FF),),
+
+  ];
+
+}
+
+class TinderCardsColors{
+
+  const TinderCardsColors({
+    required this.backGroundColor,
+    required this.gradiantBottomColor,
+    required this.gradiantTopColor,
+});
+
+  final Color backGroundColor;
+  final Color gradiantTopColor;
+  final Color gradiantBottomColor;
+
+  static TinderCardsColors tinderRandomColors(){
+   final colors = List<TinderCardsColors>.from(Colours.tinderColors)
+      ..shuffle();
+   return colors.first;
+  }
+
 }

@@ -3,8 +3,6 @@ import 'package:education_app/core/common/features/course/data/models/course_mod
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/widgets/titled_input_field.dart';
-import 'package:education_app/core/services/injection_container.dart';
-import 'package:education_app/core/utils/constants.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -137,8 +135,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                         final now =DateTime.now();
                         final Course course = CourseModel.empty()
                         .copyWith(createdAt: now,
-                          image: imageController.text.trim().isEmpty ?
-                          kDefaultAvatar: isFile? image!.path :
+                          image: isFile? image!.path :
                           imageController.text.trim()
                           ,
                         imageAsFile: isFile,

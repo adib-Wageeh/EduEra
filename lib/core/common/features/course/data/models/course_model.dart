@@ -22,6 +22,8 @@ class CourseModel extends Course{
     return CourseModel(id: json['id'] as String, title: json['title'] as String,
         createdAt: (json['createdAt'] as Timestamp).toDate(),
         groupId: json['groupId'] as String,
+        image: json['image'] as String,
+        description: json['description'] as String,
         numberOfExams: (json['numberOfExams'] as num).toInt(),
         updatedAt: (json['updatedAt'] as Timestamp).toDate(),
         numberOfVideos: (json['numberOfVideos'] as num).toInt(),

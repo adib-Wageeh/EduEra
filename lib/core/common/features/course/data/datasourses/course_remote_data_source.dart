@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:education_app/core/common/features/course/data/models/course_model.dart';
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
@@ -44,7 +43,7 @@ class CourseRemoteDataSourceImpl implements CourseRemoteDataSource{
       final courseRef = _firebaseFirestore.collection('courses').doc();
       final groupRef = _firebaseFirestore.collection('groups').doc();
 
-      final courseModel = (course as CourseModel).copyWith(id: courseRef.id,
+      var courseModel = (course as CourseModel).copyWith(id: courseRef.id,
         groupId: groupRef.id,
       );
 
@@ -53,10 +52,10 @@ class CourseRemoteDataSourceImpl implements CourseRemoteDataSource{
         ref('courses/${courseModel.id}/profileImage/${courseModel.title}-pfp');
         await imageRef.putFile(File(courseModel.image!)).then((value) async{
           final url = await value.ref.getDownloadURL();
-          courseModel.copyWith(image: url);
+          courseModel = courseModel.copyWith(image: url);
         });
-
       }
+
       await courseRef.set(courseModel.toMap());
 
       final group = GroupModel(courseId: courseRef.id, id: groupRef.id,
