@@ -1,0 +1,14 @@
+{
+  "courseId": "empty_courseId",
+  "id": "empty_id",
+  "isFile": true,
+  "fileExtension": "empty_extension",
+  "url": "empty_url",
+  "uploadDate": {
+    "_seconds": 123456,
+    "nanoseconds": 123456
+  },
+  "title": "empty_title",
+  "description": "empty_description",
+  "author": "empty_author"
+}
