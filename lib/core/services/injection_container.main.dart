@@ -12,6 +12,8 @@ Future<void> init()async{
  await _courseInit();
 
  await _initVideo();
+
+ await _examInit();
 }
 
 Future<void> _courseInit()async{
@@ -82,4 +84,30 @@ Future<void> _initVideo()async{
       ..registerLazySingleton<VideoRemoteDataSource>(
           () => VideoRemoteDataSourceImpl(firestore: sl(),firebaseStorage:sl(),
           firebaseAuth: sl(),),);
+}
+
+Future<void> _examInit()async{
+
+  sl..registerFactory(() => ExamCubit(
+    getExamQuestions: sl(),
+    getExams: sl(),
+    getUserCourseExams: sl(),
+    getUserExams: sl(),
+    submitExam: sl(),
+    updateExam: sl(),
+    uploadExam: sl(),),)
+      ..registerLazySingleton(() => GetExamsQuestionsUseCase
+        (examRepository: sl()),)
+      ..registerLazySingleton(() => GetExamsUseCase(examRepository: sl()))
+      ..registerLazySingleton(() => SubmitExamsUseCase(examRepository: sl()))
+      ..registerLazySingleton(() => UpdateExamsUseCase(examRepository: sl()))
+      ..registerLazySingleton(() => UploadExamsUseCase(examRepository: sl()))
+      ..registerLazySingleton(() => GetUserCourseExamUseCase
+        (examRepository: sl()),)
+      ..registerLazySingleton(() => GetUserExamsUseCase(examRepository: sl()))
+      ..registerLazySingleton<ExamRepository>(() =>
+          ExamRepositoryImpl(examRemoteDataSource: sl()),)
+      ..registerLazySingleton<ExamRemoteDataSource>
+        (() => ExamRemoteDataSourceImpl(firestore: sl(),firebaseAuth: sl()));
+
 }
