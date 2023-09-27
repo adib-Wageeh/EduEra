@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/videos/domain
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class GetVideosUseCase extends UseCaseWithParams<List<Video>,String>{
+class GetVideosUseCase extends FutureUseCaseWithParams<List<Video>,String>{
 
   GetVideosUseCase({required this.videoRepository,});
   VideoRepository videoRepository;

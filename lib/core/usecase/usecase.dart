@@ -1,18 +1,25 @@
 import 'package:education_app/core/utils/typedefs.dart';
 
-abstract class UseCaseWithoutParams<T>{
+abstract class FutureUseCaseWithoutParams<T>{
 
-  const UseCaseWithoutParams();
+  const FutureUseCaseWithoutParams();
 
   ResultFuture<T> call();
 
 }
 
-abstract class UseCaseWithParams<T,params>{
+abstract class FutureUseCaseWithParams<T,params>{
 
-  const UseCaseWithParams();
+  const FutureUseCaseWithParams();
 
   ResultFuture<T> call(params p);
 
 }
 
+abstract class StreamUseCaseWithoutParams<T>{
+
+  const StreamUseCaseWithoutParams();
+
+  ResultStream<T> call();
+
+}

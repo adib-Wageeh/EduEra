@@ -3,7 +3,7 @@ import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/authentication/domain/repositories/authentication_repository.dart';
 import 'package:equatable/equatable.dart';
 
-class SignUpUseCase extends UseCaseWithParams<void,SignUpParams>{
+class SignUpUseCase extends FutureUseCaseWithParams<void,SignUpParams>{
 
   const SignUpUseCase({required this.authenticationRepository});
   final AuthenticationRepository authenticationRepository;

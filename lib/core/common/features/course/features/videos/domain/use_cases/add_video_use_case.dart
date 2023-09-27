@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/videos/domain
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class AddVideoUseCase extends UseCaseWithParams<void,Video>{
+class AddVideoUseCase extends FutureUseCaseWithParams<void,Video>{
 
 
   AddVideoUseCase({required this.videoRepository,});

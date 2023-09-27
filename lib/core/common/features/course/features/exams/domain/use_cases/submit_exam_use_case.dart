@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/exams/domain/
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class SubmitExamsUseCase extends UseCaseWithParams<void,UserExam>{
+class SubmitExamsUseCase extends FutureUseCaseWithParams<void,UserExam>{
 
   SubmitExamsUseCase({required this.examRepository,});
 

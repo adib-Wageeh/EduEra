@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/domain/repositories/co
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class GetCoursesUseCase extends UseCaseWithoutParams<List<Course>>{
+class GetCoursesUseCase extends FutureUseCaseWithoutParams<List<Course>>{
 
   const GetCoursesUseCase({required this.courseRepository});
   final CourseRepository courseRepository;

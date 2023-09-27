@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/materials/dom
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class AddResourceUseCase extends UseCaseWithParams<void,Resources>{
+class AddResourceUseCase extends FutureUseCaseWithParams<void,Resources>{
 
   const AddResourceUseCase({required this.repository});
   final ResourcesRepository repository;

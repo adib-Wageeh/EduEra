@@ -4,7 +4,7 @@ import 'package:education_app/src/authentication/domain/entities/user_entity.dar
 import 'package:education_app/src/authentication/domain/repositories/authentication_repository.dart';
 import 'package:equatable/equatable.dart';
 
-class SignInUseCase extends UseCaseWithParams<UserEntity,SignInParams>{
+class SignInUseCase extends FutureUseCaseWithParams<UserEntity,SignInParams>{
 
   const SignInUseCase({required this.authenticationRepository});
   final AuthenticationRepository authenticationRepository;

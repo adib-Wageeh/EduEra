@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/exams/domain/
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class GetUserCourseExamUseCase extends UseCaseWithParams<List<UserExam>,String>{
+class GetUserCourseExamUseCase extends FutureUseCaseWithParams<List<UserExam>,String>{
 
   GetUserCourseExamUseCase({required this.examRepository,});
 

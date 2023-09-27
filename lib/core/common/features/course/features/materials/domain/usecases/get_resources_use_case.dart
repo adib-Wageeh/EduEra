@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/features/materials/dom
 import 'package:education_app/core/usecase/usecase.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 
-class GetResourceUseCase extends UseCaseWithParams<List<Resources>,String>{
+class GetResourceUseCase extends FutureUseCaseWithParams<List<Resources>,String>{
 
   const GetResourceUseCase({required this.repository});
   final ResourcesRepository repository;
