@@ -24,7 +24,7 @@ class NotificationModel extends NotificationEntity{
       id: json['id'] as String,
       title: json['title'] as String,
       body: json['body'] as String,
-      sentAt: (json['sentAt'] as Timestamp).toDate(),
+      sentAt: (json['sentAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
       seen: json['seen'] as bool,
       category: (json['category'] as String).toNotificationCategory,
     );

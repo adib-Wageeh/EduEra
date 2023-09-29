@@ -3,7 +3,9 @@ import 'package:education_app/core/common/features/course/data/models/course_mod
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/widgets/titled_input_field.dart';
+import 'package:education_app/core/enums/notification.dart';
 import 'package:education_app/core/utils/core_utils.dart';
+import 'package:education_app/src/notification/presentation/widgets/notification_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,7 +51,14 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CourseCubit,CourseState>(
+    return NotificationWrapper(
+      onNotificationSent: (){
+        if(loading){
+          Navigator.of(context).pop();
+        }
+        Navigator.of(context).pop();
+      },
+  child: BlocListener<CourseCubit,CourseState>(
         listener: (_,state){
             if(state is CourseError){
               loading = false;
@@ -67,7 +76,12 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
               Navigator.pop(context);
               CoreUtils.showSnackBar
                 (context, 'Course added successfully',);
-              // TODO(Add-Course): send notification
+              CoreUtils.showLoadingDialog(context);
+              loading= true;
+              CoreUtils.sendNotification(
+                  'New Course ${titleController.text.trim}',
+                  'A new course has been added',
+                  NotificationCategory.COURSE,context);
 
             }
     },
@@ -160,6 +174,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
         ,
       ),
     ),
-    );
+    ),
+);
   }
 }

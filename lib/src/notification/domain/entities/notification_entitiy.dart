@@ -25,7 +25,7 @@ class NotificationEntity extends Equatable{
   final String title;
   final String body;
   final NotificationCategory category;
-  final bool? seen;
+  final bool seen;
   final DateTime sentAt;
 
   @override

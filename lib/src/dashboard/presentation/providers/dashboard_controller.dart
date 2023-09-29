@@ -4,6 +4,7 @@ import 'package:education_app/core/common/features/course/presentation/cubit/cou
 import 'package:education_app/core/common/views/persistent_view.dart';
 import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/src/home/presentation/views/home_view.dart';
+import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/profile/presentation/views/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +24,9 @@ class DashBoardController extends ChangeNotifier{
              ),
             BlocProvider<VideoCubit>(
               create: (_)=> sl<VideoCubit>(),
+            ),
+            BlocProvider.value(
+              value: sl<NotificationCubit>(),
             ),
           ],
           child: const HomeView(),

@@ -14,6 +14,8 @@ Future<void> init()async{
  await _initVideo();
 
  await _examInit();
+
+ await _notificationInit();
 }
 
 Future<void> _courseInit()async{
@@ -78,7 +80,7 @@ Future<void> _initVideo()async{
     addVideo: sl(),getVideos: sl(),),)
       ..registerLazySingleton(() => AddVideoUseCase(
         videoRepository: sl(),),)
-      ..registerLazySingleton(() => GetCoursesUseCase(courseRepository: sl()))
+      ..registerLazySingleton(() => GetVideosUseCase(videoRepository: sl()))
       ..registerLazySingleton<VideoRepository>(() =>
           VideoRepositoryImpl(videoRemoteDataSource: sl(),),)
       ..registerLazySingleton<VideoRemoteDataSource>(
@@ -109,5 +111,29 @@ Future<void> _examInit()async{
           ExamRepositoryImpl(examRemoteDataSource: sl()),)
       ..registerLazySingleton<ExamRemoteDataSource>
         (() => ExamRemoteDataSourceImpl(firestore: sl(),firebaseAuth: sl()));
+
+}
+
+Future<void> _notificationInit()async{
+
+  sl..registerFactory(() => NotificationCubit(
+    clear: sl(),
+    clearAll: sl(),
+    getNotifications: sl(),
+    markAsRead: sl(),
+    sendNotification: sl(),
+    ),)
+   ..registerLazySingleton(() => ClearANotificationUseCase
+     (notificationRepo: sl()),)
+   ..registerLazySingleton(() => ClearAllUseCase(notificationRepo: sl()),)
+   ..registerLazySingleton(() => GetNotificationsUseCase
+     (notificationRepo: sl()),)
+   ..registerLazySingleton(() => MarkAsReadUseCase(notificationRepo: sl()),)
+   ..registerLazySingleton(() => AddNotificationUseCase
+     (notificationRepo: sl()),)
+   ..registerLazySingleton<NotificationRepo>
+     (() => NotificationRepoImpl(notificationRemoteDataSource: sl()),)
+   ..registerLazySingleton<NotificationRemoteDataSource>
+     (() => NotificationRemoteDataSourceImpl(auth: sl(),firestore: sl()));
 
 }

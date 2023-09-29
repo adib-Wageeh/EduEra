@@ -4,9 +4,10 @@ import 'package:education_app/core/common/features/course/presentation/cubit/cou
 import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/not_found_text.dart';
 import 'package:education_app/core/utils/core_utils.dart';
+import 'package:education_app/src/home/presentation/providers/tinder_provider.dart';
 import 'package:education_app/src/home/presentation/refactors/home_courses.dart';
 import 'package:education_app/src/home/presentation/refactors/home_header.dart';
-import 'package:education_app/src/home/providers/tinder_provider.dart';
+import 'package:education_app/src/home/presentation/refactors/home_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -58,6 +59,10 @@ class _HomeBodyState extends State<HomeBody> {
                 height: 20,
               ),
               HomeCourses(courses: courses,),
+              const SizedBox(
+                height: 20,
+              ),
+              const HomeVideos()
             ],
           );
         }

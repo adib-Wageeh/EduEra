@@ -1,9 +1,13 @@
 import 'package:education_app/core/common/app/providers/user_provider.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/views/add_exam_view.dart';
+import 'package:education_app/core/common/features/course/features/materials/presentation/views/add_materials_view.dart';
+import 'package:education_app/core/common/features/course/features/videos/presentation/views/add_video_view.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/features/course/presentation/widgets/add_course_sheet.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/profile/presentation/widgets/admin_button.dart';
 import 'package:education_app/src/profile/presentation/widgets/user_info_card.dart';
 import 'package:flutter/material.dart';
@@ -94,15 +98,43 @@ class ProfileBody extends StatelessWidget {
                     elevation: 0,
                     useSafeArea: true,
                     builder: (_){
-                    return BlocProvider(
-                      create: (_)=>sl<CourseCubit>(),
+                    return MultiBlocProvider(
+                      providers: [
+                        BlocProvider(create:
+                            (_)=>sl<CourseCubit>(),
+                        ),
+                        BlocProvider(create:
+                            (_)=>sl<NotificationCubit>(),
+                        ),
+                      ],
                       child: const AddCourseSheet(),
                     );
                   },);
                 },
-              )
+              ),
+            AdminButton(
+              label: 'Add Video',
+              icon: IconlyLight.video,
+              onPressed: (){
+                Navigator.pushNamed(context, AddVideoView.route);
+              },
+            ),
+            AdminButton(
+              label: 'Add Materials',
+              icon: IconlyLight.paper_download,
+              onPressed: (){
+                Navigator.pushNamed(context, AddMaterialsView.route);
+              },
+            ),
+            AdminButton(
+              label: 'Add Exam',
+              icon: IconlyLight.document,
+              onPressed: (){
+                Navigator.pushNamed(context, AddExamView.route);
+              },
+            )
 
-            ]
+            ],
           // ],
         );
       },

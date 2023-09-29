@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/common/features/course/presentation/views/course_details_screen.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
+import 'package:education_app/src/home/presentation/providers/tinder_provider.dart';
 import 'package:education_app/src/home/presentation/widget/tinder_card.dart';
-import 'package:education_app/src/home/providers/tinder_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:provider/provider.dart';

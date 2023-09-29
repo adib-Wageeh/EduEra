@@ -1,5 +1,5 @@
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
-import 'package:education_app/src/home/providers/tinder_provider.dart';
+import 'package:education_app/src/home/presentation/providers/tinder_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';

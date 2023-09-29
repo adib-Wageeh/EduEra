@@ -19,6 +19,7 @@ import 'package:education_app/core/common/features/course/features/videos/data/d
 import 'package:education_app/core/common/features/course/features/videos/data/repos/video_repository_impl.dart';
 import 'package:education_app/core/common/features/course/features/videos/domain/repos/video_repo.dart';
 import 'package:education_app/core/common/features/course/features/videos/domain/use_cases/add_video_use_case.dart';
+import 'package:education_app/core/common/features/course/features/videos/domain/use_cases/get_videos_use_case.dart';
 import 'package:education_app/core/common/features/course/features/videos/presentation/cubit/video_cubit.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/src/authentication/data/datasource/auth_remote_datasource.dart';
@@ -29,6 +30,15 @@ import 'package:education_app/src/authentication/domain/usecases/signin_usecase.
 import 'package:education_app/src/authentication/domain/usecases/signup_usecase.dart';
 import 'package:education_app/src/authentication/domain/usecases/update_data_usecase.dart';
 import 'package:education_app/src/authentication/presentation/bloc/auth_bloc.dart';
+import 'package:education_app/src/notification/data/datasources/notification_remote_data_source.dart';
+import 'package:education_app/src/notification/data/repos/notification_repo_impl.dart';
+import 'package:education_app/src/notification/domain/repos/notification_repo.dart';
+import 'package:education_app/src/notification/domain/usecases/add_notification_use_case.dart';
+import 'package:education_app/src/notification/domain/usecases/clear_a_notification_use_case.dart';
+import 'package:education_app/src/notification/domain/usecases/clear_all_use_case.dart';
+import 'package:education_app/src/notification/domain/usecases/get_notifications_use_case.dart';
+import 'package:education_app/src/notification/domain/usecases/mark_as_read_use_case.dart';
+import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/on_boarding/data/datasorces/onboarding_local_datasource.dart';
 import 'package:education_app/src/on_boarding/data/repository/on_boarding_repository_impl.dart';
 import 'package:education_app/src/on_boarding/domain/repositories/on_boarding_repo.dart';
