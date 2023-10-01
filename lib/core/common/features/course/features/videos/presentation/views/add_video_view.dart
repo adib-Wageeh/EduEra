@@ -199,9 +199,6 @@ class _AddVideoViewState extends State<AddVideoView> {
                       videoUrl: urlController.text.trim(),
                         title: data.title ?? 'No Title',
                       );
-                      if(data.image?.url != null){
-                        loading = false;
-                      }
                       getMoreDetails = true;
                       titleController.text = data.title ?? '';
                       loading = false;

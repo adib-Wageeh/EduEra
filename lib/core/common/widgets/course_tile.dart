@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
-import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +13,7 @@ class CourseTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
     onTap: onPressed,
+    behavior: HitTestBehavior.opaque,
     child: SizedBox(
         width: 54,
         child: Column(

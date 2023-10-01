@@ -5,6 +5,8 @@ import 'package:education_app/core/common/features/course/features/materials/pre
 import 'package:education_app/core/common/features/course/features/materials/presentation/views/add_materials_view.dart';
 import 'package:education_app/core/common/features/course/features/videos/presentation/cubit/video_cubit.dart';
 import 'package:education_app/core/common/features/course/features/videos/presentation/views/add_video_view.dart';
+import 'package:education_app/core/common/features/course/features/videos/presentation/views/course_videos_view.dart';
+import 'package:education_app/core/common/features/course/features/videos/presentation/views/video_player_view.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/features/course/presentation/views/course_details_screen.dart';
 import 'package:education_app/core/common/views/page_construction.dart';

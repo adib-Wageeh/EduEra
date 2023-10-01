@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:education_app/core/common/features/course/features/videos/data/models/video_model.dart';
+import 'package:education_app/core/common/features/course/features/videos/presentation/views/video_player_view.dart';
 import 'package:education_app/core/extensions/string_extensions.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
@@ -45,15 +48,18 @@ class VideoUtils{
 
   static Future<void> playVideo(BuildContext context,String videoUrl)async{
 
+    final navigator = Navigator.of(context);
+    void showSnackBar()=>CoreUtils.showSnackBar
+      (context, "couldn't launch $videoUrl");
       if(videoUrl.checkIfYoutube){
 
         if(!await launchUrl(Uri.parse(videoUrl),mode:
         LaunchMode.externalApplication,)){
-          CoreUtils.showSnackBar(context, "couldn't launch $videoUrl");
+          showSnackBar();
         }
-
       }else{
-        // context.pushTab(VideoPlayerView());
+        unawaited(navigator.pushNamed(VideoPlayerView.route,
+        arguments: videoUrl,),);
       }
 
   }

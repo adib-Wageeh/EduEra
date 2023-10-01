@@ -1,4 +1,5 @@
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
+import 'package:education_app/core/common/features/course/features/videos/presentation/views/course_videos_view.dart';
 import 'package:education_app/core/common/widgets/course_info_tile.dart';
 import 'package:education_app/core/common/widgets/expandable_text.dart';
 import 'package:education_app/core/common/widgets/gradient_background.dart';
@@ -83,7 +84,7 @@ class CourseDetailsScreen extends StatelessWidget {
                             title: '${course.numberOfExams} Exam(s)',
                             subTitle: 'Take our exams for ${course.title}',
                             onPressed: () => Navigator.of(context).pushNamed(
-                              '/unknown-route',
+                              CourseVideosView.route,
                               arguments: course,
                             ),
                           ),

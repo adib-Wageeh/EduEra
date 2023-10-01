@@ -13,19 +13,6 @@ class NotificationsNotifier extends ChangeNotifier{
 
   bool get getMuteState => _mute;
 
-
-  // void enableMuteNotifications(){
-  //   _mute = true;
-  //   sharedPreferences.setBool(key, true);
-  //   notifyListeners();
-  // }
-  //
-  // void disableMuteNotifications(){
-  //   _mute = false;
-  //   sharedPreferences.setBool(key, false);
-  //   notifyListeners();
-  // }
-
   void toggleMuteNotifications(){
     _mute = !_mute;
     sharedPreferences.setBool(key, _mute);
