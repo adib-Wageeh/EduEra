@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:education_app/core/common/features/course/features/materials/domain/entities/materials.dart';
 import 'package:education_app/core/common/features/course/features/materials/domain/usecases/add_resource_use_case.dart';
 import 'package:education_app/core/common/features/course/features/materials/domain/usecases/get_resources_use_case.dart';
-import 'package:education_app/core/common/features/course/features/materials/presentation/cubit/resource_cubit.dart';
+import 'package:education_app/core/common/features/course/features/materials/presentation/app/cubit/resource_cubit.dart';
 import 'package:education_app/core/errors/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

@@ -11,30 +11,34 @@ class CourseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return GestureDetector(
     onTap: onPressed,
     behavior: HitTestBehavior.opaque,
-    child: SizedBox(
-        width: 54,
-        child: Column(
-          children: [
-            SizedBox(
-              width: 54,
-              height: 54,
-              child: CoreUtils.imageType(course.image!),
-            ),
-            const SizedBox(height: 5,),
-            Text(
-              course.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
+    child: Padding(
+      padding: const EdgeInsets.all(4),
+      child: SizedBox(
+          width: size.width*0.20,
+          child: Column(
+            children: [
+              SizedBox(
+                width: size.width*0.20,
+                height: size.width*0.20,
+                child: CoreUtils.imageType(course.image!),
               ),
-            )
-          ],
+              const SizedBox(height: 5,),
+              Text(
+                course.title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),
+              )
+            ],
+          ),
         ),
-      ),
+    ),
     );
   }
 }

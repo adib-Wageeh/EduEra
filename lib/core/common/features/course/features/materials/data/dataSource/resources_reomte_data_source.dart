@@ -46,10 +46,10 @@ class ResourcesRemoteDataSourceImpl implements ResourcesRemoteDataSource{
       .doc(resourcesModel.courseId).collection('materials').doc();
 
       if(resourcesModel.isFile){
-        final refPath = await _storage.ref().child('courses')
-            .child(resourcesModel.courseId).child('materials')
-            .putFile(File(resourcesModel.url));
-
+        final materialFileRef = _storage.ref().child(
+          'courses/${resourcesModel.courseId}/materials/${materialDoc.id}/material',
+        );
+        final refPath = await materialFileRef.putFile(File(resourcesModel.url));
        final ref = await refPath.ref.getDownloadURL();
         resourcesModel = resourcesModel.copyWith(url: ref);
       }

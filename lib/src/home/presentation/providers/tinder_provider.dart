@@ -26,11 +26,21 @@ class TinderProvider extends ChangeNotifier{
   int get currentIndex => _index;
 
   void add(){
-    _courses.add(_courses[_index]);
-    _colorsList.add(TinderCardsColors.tinderRandomColors());
-    _index = _index+1;
-    notifyListeners();
-
+    if(_courses.length == 1){
+      return;
+    }else {
+      if (_courses.length < 3) {
+        _courses..add(_courses[_index])..add(_courses[_index + 1]);
+        _colorsList..add(TinderCardsColors.tinderRandomColors())..add(
+            TinderCardsColors.tinderRandomColors());
+        _index = _index + 1;
+      } else {
+        _courses.add(_courses[_index]);
+        _colorsList.add(TinderCardsColors.tinderRandomColors());
+        _index = _index + 1;
+      }
+      notifyListeners();
+    }
   }
 
 }

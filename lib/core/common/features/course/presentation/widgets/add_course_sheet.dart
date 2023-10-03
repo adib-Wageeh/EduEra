@@ -60,8 +60,11 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
       },
   child: BlocListener<CourseCubit,CourseState>(
         listener: (_,state){
+          if(loading) {
+            loading = false;
+            Navigator.pop(context);
+          }
             if(state is CourseError){
-              loading = false;
               Navigator.pop(context);
               CoreUtils.showSnackBar(context,
               state.message,);
@@ -69,20 +72,12 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
               loading = true;
               CoreUtils.showLoadingDialog(context);
             }else if(state is CourseAdded){
-              if(loading) {
-                loading = false;
-                Navigator.pop(context);
-              }
-              Navigator.pop(context);
               CoreUtils.showSnackBar
                 (context, 'Course added successfully',);
-              CoreUtils.showLoadingDialog(context);
-              loading= true;
               CoreUtils.sendNotification(
-                  'New Course ${titleController.text.trim}',
+                  'New Course ${titleController.text.trim()}',
                   'A new course has been added',
-                  NotificationCategory.COURSE,context);
-
+                  NotificationCategory.COURSE,context,);
             }
     },
     child: Padding(

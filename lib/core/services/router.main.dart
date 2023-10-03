@@ -66,6 +66,15 @@ Route<dynamic> generateFunction(RouteSettings routeSettings) {
           )
         , settings: routeSettings,);
 
+    case CourseMaterialsView.route:
+      return _pageBuilder((_) =>
+          BlocProvider<ResourceCubit>(
+            create: (_) => sl<ResourceCubit>(),
+            child: CourseMaterialsView(
+              course: routeSettings.arguments! as Course,),
+          )
+        , settings: routeSettings,);
+
     case VideoPlayerView.route:
       return _pageBuilder((_) =>
           VideoPlayerView(
@@ -89,6 +98,7 @@ Route<dynamic> generateFunction(RouteSettings routeSettings) {
             providers: [
               BlocProvider(create: (_) => sl<CourseCubit>()),
               BlocProvider(create: (_) => sl<ResourceCubit>()),
+              BlocProvider(create: (_) => sl<NotificationCubit>()),
             ]
             , child: const AddMaterialsView(),)
         , settings: routeSettings,);

@@ -18,6 +18,7 @@ class MediaRes{
   static const steamCup = '$_baseVector/steam_cup.png';
   static const turquoisePotPlant = '$_baseVector/turquoise_pot_plant.png';
 
+
   /// Backgrounds
   static const onBoardingBackground = '$_baseImage/onBoarding_background.png';
   static const authGradientBackground =
@@ -51,6 +52,9 @@ class MediaRes{
   static const courseInfoExam = '$_baseIcon/course_info_exam.png';
   static const courseInfoMaterial = '$_baseIcon/course_info_material.png';
   static const courseInfoVideo = '$_baseIcon/course_info_video.png';
+  static const json2 = '$_baseIcon/json2.png';
+  static const pdf = '$_baseIcon/pdf.png';
+  static const pdf2 = '$_baseIcon/pdf2.png';
 
   /// Subjects
   static const physicsIcon = '$_baseIcon/atom.png';

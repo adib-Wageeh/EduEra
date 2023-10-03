@@ -20,15 +20,16 @@ class VideoTile extends StatelessWidget {
   final String uploadTimePrefix;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 20,),
-      height: 108,
-      child: Row(
-        children: [
-          GestureDetector(
-            onTap: tappable
-                ? () => VideoUtils.playVideo(context, video.videoUrl):null,
-            child: Stack(
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: tappable
+          ? () => VideoUtils.playVideo(context, video.videoUrl):null
+    ,child: Container(
+        margin: const EdgeInsets.only(bottom: 20,),
+        height: 108,
+        child: Row(
+          children: [
+            Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
@@ -64,45 +65,44 @@ class VideoTile extends StatelessWidget {
                   )
               ],
             ),
-
-          ),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Text(
-                    video.title!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+            const SizedBox(width: 20),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      video.title!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    'By ${video.tutor}',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colours.neutralTextColour,
+                  Expanded(
+                    child: Text(
+                      'By ${video.tutor}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colours.neutralTextColour,
+                      ),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: TimeTile(
-                    video.uploadDate,
-                    prefixText: uploadTimePrefix,
+                  Flexible(
+                    child: TimeTile(
+                      video.uploadDate,
+                      prefixText: uploadTimePrefix,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

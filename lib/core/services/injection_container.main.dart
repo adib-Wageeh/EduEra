@@ -16,6 +16,8 @@ Future<void> init()async{
  await _examInit();
 
  await _notificationInit();
+
+ await _initMaterial();
 }
 
 Future<void> _courseInit()async{
@@ -136,4 +138,28 @@ Future<void> _notificationInit()async{
    ..registerLazySingleton<NotificationRemoteDataSource>
      (() => NotificationRemoteDataSourceImpl(auth: sl(),firestore: sl()));
 
+}
+
+Future<void> _initMaterial() async {
+  sl
+    ..registerFactory(
+          () => ResourceCubit(
+        addResourceUseCase: sl(),
+        getResourceUseCase: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => AddResourceUseCase(repository: sl()))
+    ..registerLazySingleton(() => GetResourceUseCase(repository: sl()))
+    ..registerLazySingleton<ResourcesRepository>(() =>
+        ResourcesRepositoryImpl(remoteDataSource: sl()),)
+    ..registerLazySingleton<ResourcesRemoteDataSource>(
+          () => ResourcesRemoteDataSourceImpl(
+        firestore: sl(),
+        auth: sl(),
+        storage: sl(),
+      ),
+    )..registerFactory(() => ResourceController(
+    storage: sl(),
+    prefs: sl(),
+  ),);
 }

@@ -15,6 +15,13 @@ import 'package:education_app/core/common/features/course/features/exams/domain/
 import 'package:education_app/core/common/features/course/features/exams/domain/use_cases/update_exam_use_case.dart';
 import 'package:education_app/core/common/features/course/features/exams/domain/use_cases/upload_exam_use_case.dart';
 import 'package:education_app/core/common/features/course/features/exams/presentation/cubit/exam_cubit.dart';
+import 'package:education_app/core/common/features/course/features/materials/data/dataSource/resources_reomte_data_source.dart';
+import 'package:education_app/core/common/features/course/features/materials/data/repository/resources_repository_impl.dart';
+import 'package:education_app/core/common/features/course/features/materials/domain/repository/materials_repo.dart';
+import 'package:education_app/core/common/features/course/features/materials/domain/usecases/add_resource_use_case.dart';
+import 'package:education_app/core/common/features/course/features/materials/domain/usecases/get_resources_use_case.dart';
+import 'package:education_app/core/common/features/course/features/materials/presentation/app/cubit/resource_cubit.dart';
+import 'package:education_app/core/common/features/course/features/materials/presentation/app/providers/resouce_controller.dart';
 import 'package:education_app/core/common/features/course/features/videos/data/data_source/video_remote_data_source.dart';
 import 'package:education_app/core/common/features/course/features/videos/data/repos/video_repository_impl.dart';
 import 'package:education_app/core/common/features/course/features/videos/domain/repos/video_repo.dart';

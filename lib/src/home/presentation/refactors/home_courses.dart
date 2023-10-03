@@ -33,7 +33,6 @@ class HomeCourses extends StatelessWidget {
         const SizedBox(height: 20,),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: courses.take(4).map((course){
             return CourseTile(course: course,onPressed: (){
               Navigator.of(context).pushNamed(CourseDetailsScreen.route

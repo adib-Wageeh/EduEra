@@ -1,3 +1,6 @@
+import 'package:education_app/core/res/media_res.dart';
+import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:youtube_metadata/youtube_metadata.dart';
 
 extension StringExtensions on String{
@@ -14,5 +17,19 @@ extension StringExtensions on String{
 
   bool get checkIfYoutube => contains('youtube.com/watch?v=') ||
     contains('youtu.be/');
+
+  String get iconFromExtension{
+    switch(this){
+
+      case 'pdf':
+        return MediaRes.pdf2;
+      case 'json':
+        return MediaRes.json2;
+      default:
+        return MediaRes.material;
+
+    }
+
+  }
 
 }
