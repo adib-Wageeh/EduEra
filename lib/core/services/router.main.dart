@@ -62,7 +62,7 @@ Route<dynamic> generateFunction(RouteSettings routeSettings) {
           BlocProvider<VideoCubit>(
             create: (_) => sl<VideoCubit>(),
             child: CourseVideosView(
-                course: routeSettings.arguments! as Course,),
+              course: routeSettings.arguments! as Course,),
           )
         , settings: routeSettings,);
 
@@ -109,8 +109,45 @@ Route<dynamic> generateFunction(RouteSettings routeSettings) {
             providers: [
               BlocProvider(create: (_) => sl<CourseCubit>()),
               BlocProvider(create: (_) => sl<ExamCubit>()),
+              BlocProvider(create: (_) => sl<NotificationCubit>()),
             ]
             , child: const AddExamView(),)
+        , settings: routeSettings,);
+
+    case CourseExamsView.route:
+      return _pageBuilder((_) =>
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => sl<ExamCubit>()),
+            ]
+            , child: CourseExamsView
+            (course: routeSettings.arguments! as Course,),)
+        , settings: routeSettings,);
+
+    case ExamDetailsView.route:
+      return _pageBuilder((_) =>
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => sl<ExamCubit>()),
+            ]
+            , child: ExamDetailsView
+            (exam: routeSettings.arguments! as Exam,),)
+        , settings: routeSettings,);
+
+    case ExamView.route:
+      return _pageBuilder((_) =>
+          BlocProvider(
+            create: (_) => sl<ExamCubit>(),
+            child: ChangeNotifierProvider(
+              create: (_) =>
+                  ExamController(exam: routeSettings.arguments! as Exam,)
+              , child: const ExamView(),),
+          )
+        , settings: routeSettings,);
+
+    case UserExamResultView.route:
+      return _pageBuilder((_) =>
+           UserExamResultView(exam: routeSettings.arguments! as UserExam)
         , settings: routeSettings,);
 
     default:

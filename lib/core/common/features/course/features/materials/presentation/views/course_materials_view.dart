@@ -73,7 +73,7 @@ class _CourseMaterialsViewState extends State<CourseMaterialsView> {
                   );
                 }, itemCount: state.materials.length,);
               }
-              return NotFoundText(text: 'No Materials Found For'
+              return NotFoundText(text: 'No Materials Found For '
                   '${widget.course.title}',);
           },
         ),

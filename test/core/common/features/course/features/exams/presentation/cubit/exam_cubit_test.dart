@@ -10,7 +10,7 @@ import 'package:education_app/core/common/features/course/features/exams/domain/
 import 'package:education_app/core/common/features/course/features/exams/domain/use_cases/submit_exam_use_case.dart';
 import 'package:education_app/core/common/features/course/features/exams/domain/use_cases/update_exam_use_case.dart';
 import 'package:education_app/core/common/features/course/features/exams/domain/use_cases/upload_exam_use_case.dart';
-import 'package:education_app/core/common/features/course/features/exams/presentation/cubit/exam_cubit.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/app/cubit/exam_cubit.dart';
 import 'package:education_app/core/errors/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

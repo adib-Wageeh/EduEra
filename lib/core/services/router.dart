@@ -1,6 +1,13 @@
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
-import 'package:education_app/core/common/features/course/features/exams/presentation/cubit/exam_cubit.dart';
+import 'package:education_app/core/common/features/course/features/exams/domain/entities/exam.dart';
+import 'package:education_app/core/common/features/course/features/exams/domain/entities/user_exam.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/app/cubit/exam_cubit.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/app/providers/exams_controller.dart';
 import 'package:education_app/core/common/features/course/features/exams/presentation/views/add_exam_view.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/views/course_exams_view.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/views/exam_details_view.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/views/exam_view.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/views/user_exam_result_view.dart';
 import 'package:education_app/core/common/features/course/features/materials/presentation/app/cubit/resource_cubit.dart';
 import 'package:education_app/core/common/features/course/features/materials/presentation/views/add_materials_view.dart';
 import 'package:education_app/core/common/features/course/features/materials/presentation/views/course_materials_view.dart';
@@ -26,6 +33,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' as fui;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'router.main.dart';

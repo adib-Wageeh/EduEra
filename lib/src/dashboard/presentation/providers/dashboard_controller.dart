@@ -1,4 +1,5 @@
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
+import 'package:education_app/core/common/features/course/features/exams/presentation/app/cubit/exam_cubit.dart';
 import 'package:education_app/core/common/features/course/features/videos/presentation/cubit/video_cubit.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/views/persistent_view.dart';
@@ -6,6 +7,8 @@ import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/src/home/presentation/views/home_view.dart';
 import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/profile/presentation/views/profile_view.dart';
+import 'package:education_app/src/quick_access/presentation/app/providers/quick_access_controller.dart';
+import 'package:education_app/src/quick_access/presentation/views/quick_access_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +40,18 @@ class DashBoardController extends ChangeNotifier{
     ChangeNotifierProvider(
       create: (_)=>
           TabNavigator(
-            TabItem(child: Placeholder()),
+            TabItem(child: ChangeNotifierProvider(
+                create: (_)=>QuickAccessController(),
+                child: MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (_)=> sl<CourseCubit>(),
+                    ),
+                    BlocProvider(
+                    create: (_)=> sl<ExamCubit>(),
+                    ),
+                  ],
+                    child: const QuickAccessView(),),),),
           ),
       child: const PersistentView(),
     ),

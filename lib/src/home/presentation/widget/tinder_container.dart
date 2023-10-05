@@ -28,13 +28,13 @@ class _TinderContainerState extends State<TinderContainer> {
             return TinderSwapCard(
               totalNum: provider.coursesList.length,
               swipeEdge: 4,
+              allowSwipe: provider.coursesList.length != 1,
               maxWidth: context.width,
               maxHeight: context.width * .9,
               minWidth: context.width * .71,
               minHeight: context.width * .85,
               swipeCompleteCallback: (CardSwipeOrientation orientation,
                   int index,) {
-
                 if(orientation != CardSwipeOrientation.recover) {
                     provider.add();
                   }
