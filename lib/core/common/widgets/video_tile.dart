@@ -6,6 +6,7 @@ import 'package:education_app/core/extensions/string_extensions.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VideoTile extends StatelessWidget {
   const VideoTile({
@@ -26,15 +27,15 @@ class VideoTile extends StatelessWidget {
           ? () => VideoUtils.playVideo(context, video.videoUrl):null
     ,child: Container(
         margin: const EdgeInsets.only(bottom: 20,),
-        height: 108,
+        height: 108.h,
         child: Row(
           children: [
             Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
-                  width: 130,
-                  height: 108,
+                  width: 130.w,
+                  height: 108.h,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         image: video.thumbnail == null?
@@ -49,23 +50,23 @@ class VideoTile extends StatelessWidget {
                 ),
                 if(tappable)
                   Container(
-                    width: 130,
-                    height: 108,
+                    width: 130.w,
+                    height: 108.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
                       color: Colors.black.withOpacity(0.3),
                     ),
                     child: Center(
                       child: (video.videoUrl.checkIfYoutube)?
-                      Image.asset(MediaRes.youtube,height: 40,):
-                          const Icon(Icons.play_arrow_rounded,size: 40,
+                      Image.asset(MediaRes.youtube,height: 40.h,):
+                      Icon(Icons.play_arrow_rounded,size: 40.sp,
                           color: Colors.white,),
                     ),
 
-                  )
+                  ),
               ],
             ),
-            const SizedBox(width: 20),
+            SizedBox(width: 20.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,8 +76,8 @@ class VideoTile extends StatelessWidget {
                       video.title!,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style:  TextStyle(
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -86,8 +87,8 @@ class VideoTile extends StatelessWidget {
                       'By ${video.tutor}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 12,
+                      style:  TextStyle(
+                        fontSize: 12.sp,
                         color: Colours.neutralTextColour,
                       ),
                     ),

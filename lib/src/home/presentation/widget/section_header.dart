@@ -1,5 +1,6 @@
 import 'package:education_app/core/res/colours.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
@@ -18,8 +19,8 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(
             sectionTitle,
-          style: const TextStyle(
-            fontSize: 18,
+          style:  TextStyle(
+            fontSize: 18.sp,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -30,15 +31,15 @@ class SectionHeader extends StatelessWidget {
               splashFactory: NoSplash.splashFactory,
             ),
               onPressed: onPressed,
-              child: const Text(
+              child: Text(
                 'See All',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colours.primaryColour,
+                  fontSize: 16.sp,
                 ),
               ),
-          )
-
+          ),
       ],
     );
   }

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:education_app/core/common/features/course/data/models/course_model.dart';
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/errors/exceptions.dart';
-import 'package:education_app/src/chat/data/models/groupModel.dart';
+import 'package:education_app/src/chat/data/models/group_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 

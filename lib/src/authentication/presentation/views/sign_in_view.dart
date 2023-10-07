@@ -12,6 +12,7 @@ import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -57,19 +58,19 @@ class _SignInScreenState extends State<SignInScreen> {
                     shrinkWrap: true,
                     padding:const EdgeInsets.symmetric(horizontal: 20),
                     children:  [
-                      const Text('Easy to learn, discover more skills',
+                       Text('Easy to learn, discover more skills',
                       style: TextStyle(
                         fontFamily: Fonts.aeonik,
                         fontWeight: FontWeight.w700,
-                        fontSize: 32,
+                        fontSize: 32.sp,
                       ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
-                      const Text('Sign in to your account',
+                       Text('Sign in to your account',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                       ),
                       ),
                       Align(
@@ -81,21 +82,25 @@ class _SignInScreenState extends State<SignInScreen> {
                             Navigator.pushReplacementNamed(context,
                             SignUpScreen.route,);
                           }, child:
-                          const Text(
+                           Text(
                           textAlign: TextAlign.right
-                          ,'Register account?',),
+                          ,'Register account?',
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                          ),
+                          ),
                           ),
                         ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       SignInForm(
                         emailController: emailController,
                         passwordController: passwordController,
                         formKey: formKey,
                       ),
-                      const SizedBox(
-                        height: 20,
+                       SizedBox(
+                        height: 20.h,
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -103,11 +108,12 @@ class _SignInScreenState extends State<SignInScreen> {
                           Navigator.pushNamed(context,
                             '/forgot-password',);
                         }, child:
-                        const Text('Forgot password?',),
+                         Text('Forgot password?',
+                        style: TextStyle(fontSize: 14.sp),),
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       if (state is AuthLoading) const
                       Center(child: CircularProgressIndicator(),)
@@ -123,7 +129,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               ,),);
                           }
                         },
-                      )
+                      ),
                     ],
                   ),
                 ),

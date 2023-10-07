@@ -35,7 +35,7 @@ class QuickAccessExamTile extends StatelessWidget {
                     end: Alignment.bottomRight,
                     colors: [
                       Colours.literatureTileColour,
-                      Colors.white
+                      Colors.white,
                     ],
                   ),
                 ),
@@ -63,11 +63,14 @@ class QuickAccessExamTile extends StatelessWidget {
                   RichText(text:
                   TextSpan(
                     text: '$totalCorrectAnswers/${exam.totalQuestions}',
-                    style: const TextStyle(color: Colours.redColour),
+                    style: TextStyle(color:
+                    (totalCorrectAnswers*2 >= exam.totalQuestions)?
+                      Colors.green:Colours.redColour,
+                    ),
                     children: const [
                       TextSpan(text: ' questions',
                       style: TextStyle(color: Colors.black),
-                      )
+                      ),
                     ]
                   ,),),
                 ],
@@ -79,7 +82,8 @@ class QuickAccessExamTile extends StatelessWidget {
                 stepSize: 10,
                 width: MediaQuery.of(context).size.height*0.09,
                 height: MediaQuery.of(context).size.height*0.09,
-                selectedColor: Colours.redColour,
+                selectedColor:(totalCorrectAnswers*2 >= exam.totalQuestions)?
+                Colors.green:Colours.redColour,
                 unselectedColor: Colors.grey[200],
                 padding: 0,
                 selectedStepSize: 15,
@@ -88,7 +92,9 @@ class QuickAccessExamTile extends StatelessWidget {
                   child: Text(
                     ((totalCorrectAnswers/exam.totalQuestions)*100)
                         .toInt().toString(),
-                  style: const TextStyle(color: Colours.redColour,
+                  style: TextStyle(color:
+                  (totalCorrectAnswers*2 >= exam.totalQuestions)?
+                  Colors.green:Colours.redColour,
                   fontWeight: FontWeight.w600,
                     fontSize: 14,
                   ),

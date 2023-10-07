@@ -23,3 +23,12 @@ abstract class StreamUseCaseWithoutParams<T>{
   ResultStream<T> call();
 
 }
+
+
+abstract class StreamUseCaseWithParams<T,params>{
+
+  const StreamUseCaseWithParams();
+
+  ResultStream<T> call(params p);
+
+}

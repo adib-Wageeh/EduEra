@@ -12,6 +12,7 @@ import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -62,23 +63,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   shrinkWrap: true,
                   padding:const EdgeInsets.symmetric(horizontal: 20),
                   children:  [
-                    const Text('Easy to learn, discover more skills',
+                     Text('Easy to learn, discover more skills',
                       style: TextStyle(
                         fontFamily: Fonts.aeonik,
                         fontWeight: FontWeight.w700,
-                        fontSize: 32,
+                        fontSize: 32.sp,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
-                    const Text('Sign up for a new account',
+                     Text('Sign up for a new account',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     Align(
                       alignment: Alignment.centerRight,
@@ -89,13 +90,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Navigator.pushReplacementNamed(context,
                             SignInScreen.route,);
                         }, child:
-                        const Text(
-                          // textAlign: TextAlign.right,
-                        'Already has an account?',),
+                         Text(
+                        'Already has an account?',
+                        style: TextStyle(fontSize: 14.sp),
+                        ),
                         ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     SignUpForm(
                       emailController: emailController,
@@ -104,8 +106,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       passwordController: passwordController,
                       formKey: formKey,
                     ),
-                    const SizedBox(
-                      height: 30,
+                     SizedBox(
+                      height: 30.h,
                     ),
                     if (state is AuthLoading) const
                     Center(child: CircularProgressIndicator(),)
@@ -122,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ,),);
                         }
                       },
-                    )
+                    ),
                   ],
                 ),
               ),

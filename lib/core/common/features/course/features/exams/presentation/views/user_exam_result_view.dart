@@ -3,6 +3,7 @@ import 'package:education_app/core/common/widgets/nested_back_button.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/src/quick_access/presentation/widgets/quick_access_exam_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class UserExamResultView extends StatelessWidget {
@@ -29,49 +30,49 @@ class UserExamResultView extends StatelessWidget {
              QuickAccessExamTile(
                onTab: (){}
             ,exam: exam,),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: RichText(
                 text: TextSpan(
                 text: 'Date Submitted: ',
-                style: const TextStyle(color: Colors.black,
+                style: TextStyle(color: Colors.black,
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: 16.sp,
                 ),
                 children: [
                   TextSpan(text: formattedDate,
                   style: const TextStyle(fontWeight: FontWeight.w400),
-                  )
+                  ),
                 ]
               ,),),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             ...exam.examAnswers.where((answer) =>
             answer.userChoice != answer.correctChoice,).map((answer){
               final questionNumber = exam.examAnswers.indexOf(answer) + 1;
               return ExpansionTile(
                   title: Text('Question $questionNumber',
-                  style: const TextStyle(fontSize: 18,
+                  style: TextStyle(fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
                   ),
                   ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                   Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text('Wrong',style: TextStyle(
                       color: Colours.redColour,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                     ),),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text('Your Answer: ${answer.userChoice}',style:
-                    const TextStyle(
+                     TextStyle(
                       color: Colours.redColour,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                     ),),
                   ),

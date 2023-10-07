@@ -10,6 +10,7 @@ import 'package:education_app/src/dashboard/presentation/providers/dashboard_con
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,29 +31,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-        create: (_)=> UserProvider(),),
-        ChangeNotifierProvider(
-          create: (_)=> DashBoardController(),),
-        ChangeNotifierProvider(
-          create: (_)=> CourseOfTheDayNotifier(),),
-        ChangeNotifierProvider(
-          create: (_)=> NotificationsNotifier(sl<SharedPreferences>()),),
-      ],
-    child: MaterialApp(
-        theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme(
-            color: Colors.transparent,
+    return ScreenUtilInit(
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+          create: (_)=> UserProvider(),),
+          ChangeNotifierProvider(
+            create: (_)=> DashBoardController(),),
+          ChangeNotifierProvider(
+            create: (_)=> CourseOfTheDayNotifier(),),
+          ChangeNotifierProvider(
+            create: (_)=> NotificationsNotifier(sl<SharedPreferences>()),),
+        ],
+      child: MaterialApp(
+          theme: ThemeData(
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            useMaterial3: true,
+            appBarTheme: const AppBarTheme(
+              color: Colors.transparent,
+            ),
+            fontFamily: Fonts.poppins,
+            colorScheme: ColorScheme.fromSwatch(
+                accentColor: Colours.primaryColour,),
           ),
-          fontFamily: Fonts.poppins,
-          colorScheme: ColorScheme.fromSwatch(
-              accentColor: Colours.primaryColour,),
+          onGenerateRoute: generateFunction,
         ),
-        onGenerateRoute: generateFunction,
       ),
     );
   }

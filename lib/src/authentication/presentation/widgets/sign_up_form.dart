@@ -1,5 +1,6 @@
 import 'package:education_app/core/common/widgets/i_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -31,16 +32,16 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: 'Full Name',
             keyboardType: TextInputType.name,
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
           IField(
             controller: widget.emailController,
             hintText: 'Email Address',
             keyboardType: TextInputType.emailAddress,
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
           IField(
             controller: widget.passwordController,
@@ -56,8 +57,8 @@ class _SignUpFormState extends State<SignUpForm> {
             keyboardType: TextInputType.visiblePassword,
             obscureText: obscurePassword,
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
           IField(
             controller: widget.confirmPasswordController,
@@ -80,8 +81,8 @@ class _SignUpFormState extends State<SignUpForm> {
             overrideValidator: true,
             obscureText: obscureConfirmPassword,
           ),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: 20.h,
           ),
 
         ],

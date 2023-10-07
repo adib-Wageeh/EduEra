@@ -8,6 +8,7 @@ import 'package:education_app/src/on_boarding/presentation/cubit/on_boarding_cub
 import 'package:education_app/src/on_boarding/presentation/widgets/on_boarding_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -48,11 +49,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   OnBoardingBody(pageContent: PageContent.second(),
                   pageController: pageController,),
                   OnBoardingBody(pageContent: PageContent.third(),
-                  pageController: pageController,)
+                  pageController: pageController,),
                 ],
               ),
               Align(
-                alignment: const Alignment(0, 0.13),
+                alignment: Alignment(0, 0.10.h),
                 child: SmoothPageIndicator(
                 controller: pageController
                 ,count: 3,
@@ -63,15 +64,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     curve: Curves.easeInOut,
                   );
                 },
-                  effect: const WormEffect(
-                    dotHeight: 10,
-                    dotWidth: 10,
+                  effect: WormEffect(
+                    dotHeight: 10.h,
+                    dotWidth: 10.w,
                     spacing: 40,
                     activeDotColor: Colours.primaryColour,
                     dotColor: Colors.white,
                   ),
                 ),
-              )
+              ),
             ],
           );
 

@@ -9,6 +9,7 @@ import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/home/presentation/widget/section_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeVideos extends StatefulWidget {
   const HomeVideos({super.key});
@@ -64,7 +65,7 @@ class _HomeVideosState extends State<HomeVideos> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               for(final video in state.videos.take(5))
                  VideoTile(video: video,tappable: true),
             ],

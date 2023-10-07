@@ -1,6 +1,7 @@
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CourseTile extends StatelessWidget {
   const CourseTile({
@@ -26,15 +27,15 @@ class CourseTile extends StatelessWidget {
                 height: size.width*0.20,
                 child: CoreUtils.imageType(course.image!),
               ),
-              const SizedBox(height: 5,),
+               SizedBox(height: 5.h,),
               Text(
                 course.title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 12,
+                  fontSize: 12.sp,
                 ),
-              )
+              ),
             ],
           ),
         ),

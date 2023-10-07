@@ -6,6 +6,7 @@ import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/src/home/presentation/widget/section_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeCourses extends StatelessWidget {
   const HomeCourses({required this.courses, super.key});
@@ -24,13 +25,14 @@ class HomeCourses extends StatelessWidget {
             context.pushTab(AllCoursesView(courses: courses,));
           },
         ),
-        const Text('Explore our courses',
+         Text('Explore our courses',
         style: TextStyle(
           fontWeight: FontWeight.w500,
           color: Colours.neutralTextColour,
+          fontSize: 14.sp,
         ),
         ),
-        const SizedBox(height: 20,),
+         SizedBox(height: 20.h,),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: courses.take(4).map((course){
@@ -39,7 +41,7 @@ class HomeCourses extends StatelessWidget {
               ,arguments: course,);
             },);
           }).toList(),
-        )
+        ),
       ],
 
     );

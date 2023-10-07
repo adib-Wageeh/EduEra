@@ -1,5 +1,6 @@
 import 'package:education_app/core/common/widgets/i_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
 class SignInForm extends StatefulWidget {
@@ -28,8 +29,8 @@ class _SignInFormState extends State<SignInForm> {
             hintText: 'Email Address',
             keyboardType: TextInputType.emailAddress,
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
           IField(
             controller: widget.passwordController,
@@ -45,8 +46,8 @@ class _SignInFormState extends State<SignInForm> {
             keyboardType: TextInputType.visiblePassword,
             obscureText: obscurePassword,
           ),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: 20.h,
           ),
 
         ],

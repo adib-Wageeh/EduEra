@@ -1,5 +1,6 @@
 import 'package:education_app/core/res/colours.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
@@ -21,10 +22,12 @@ class RoundedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColour ?? Colours.primaryColour,
         foregroundColor: labelColour ?? Colors.white,
-        minimumSize: const Size(double.maxFinite, 50),
+        minimumSize: Size(double.maxFinite, 45.sp),
       ),
       onPressed: onPressed,
-      child: Text(label),
+      child: Text(label,
+      style: TextStyle(fontSize: 14.sp),
+      ),
     );
   }
 }

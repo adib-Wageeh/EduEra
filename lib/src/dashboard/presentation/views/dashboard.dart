@@ -25,7 +25,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     SystemChrome.setPreferredOrientations(
       [
       DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown
+        DeviceOrientation.portraitDown,
         ]
     );
   }

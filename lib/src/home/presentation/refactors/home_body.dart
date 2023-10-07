@@ -10,6 +10,7 @@ import 'package:education_app/src/home/presentation/refactors/home_header.dart';
 import 'package:education_app/src/home/presentation/refactors/home_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class HomeBody extends StatefulWidget {
@@ -55,14 +56,14 @@ class _HomeBodyState extends State<HomeBody> {
               ChangeNotifierProvider(
               create: (_)=> TinderProvider(List<Course>.from(courses)),
               child: const HomeHeader(),),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 10.h,
               ),
               HomeCourses(courses: courses,),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
-              const HomeVideos()
+              const HomeVideos(),
             ],
           );
         }

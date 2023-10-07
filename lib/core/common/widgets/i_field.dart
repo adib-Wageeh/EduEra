@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IField extends StatelessWidget {
   const IField({
@@ -67,8 +68,8 @@ class IField extends StatelessWidget {
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: hintStyle ??
-            const TextStyle(
-              fontSize: 16,
+             TextStyle(
+              fontSize: 16.sp,
               fontWeight: FontWeight.w400,
             ),
       ),

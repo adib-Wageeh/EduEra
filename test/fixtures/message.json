@@ -1,0 +1,10 @@
+{
+  "message":"message",
+  "id":"message_id",
+  "senderId":"sender_id",
+  "groupId":"group_id",
+  "timeStamp":{
+    "_seconds": 123456,
+    "nanoseconds": 123456
+  }
+}
