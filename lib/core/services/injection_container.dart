@@ -37,6 +37,17 @@ import 'package:education_app/src/authentication/domain/usecases/signin_usecase.
 import 'package:education_app/src/authentication/domain/usecases/signup_usecase.dart';
 import 'package:education_app/src/authentication/domain/usecases/update_data_usecase.dart';
 import 'package:education_app/src/authentication/presentation/bloc/auth_bloc.dart';
+import 'package:education_app/src/chat/data/dataSource/chat_remote_data_source.dart';
+import 'package:education_app/src/chat/data/repos/chat_repo_impl.dart';
+import 'package:education_app/src/chat/domain/repos/chat_repo.dart';
+import 'package:education_app/src/chat/domain/usecases/get_groups_use_case.dart';
+import 'package:education_app/src/chat/domain/usecases/get_messages_use_case.dart';
+import 'package:education_app/src/chat/domain/usecases/get_user_by_id_use_case.dart';
+import 'package:education_app/src/chat/domain/usecases/join_group_use_case.dart';
+import 'package:education_app/src/chat/domain/usecases/leave_group_use_case.dart';
+import 'package:education_app/src/chat/domain/usecases/send_message_use_case.dart';
+import 'package:education_app/src/chat/presentation/cubit/chat_cubit/chat_cubit.dart';
+import 'package:education_app/src/chat/presentation/cubit/group_cubit/group_cubit.dart';
 import 'package:education_app/src/notification/data/datasources/notification_remote_data_source.dart';
 import 'package:education_app/src/notification/data/repos/notification_repo_impl.dart';
 import 'package:education_app/src/notification/domain/repos/notification_repo.dart';

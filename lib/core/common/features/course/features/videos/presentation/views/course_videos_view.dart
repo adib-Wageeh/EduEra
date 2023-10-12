@@ -44,7 +44,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
         centerTitle: false,
         leading: const NestedBackButton(),
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search))
+          IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
         ],
       ),
       body: GradientBackground(
@@ -93,7 +93,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
                         tappable: true,);
                       },
                   itemCount: state.videos.length,
-                  ),)
+                  ),),
                 ],
               ),
             );

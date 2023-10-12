@@ -37,6 +37,9 @@ class MediaRes{
 
   static const thumbnailPlaceholder = '$_baseImage/video_placeholder.png';
 
+  static const logoTrans = '$_baseImage/logo_trans.png';
+  static const logo = '$_baseImage/logo.png';
+
   static const user = '$_baseIcon/user.png';
   static const youtube = '$_baseIcon/youtube.png';
   static const course = '$_baseIcon/course.png';

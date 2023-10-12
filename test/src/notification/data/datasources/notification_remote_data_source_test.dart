@@ -186,7 +186,7 @@ void main() {
 
       final expectedNotifications = [
         NotificationModel.empty().copyWith(
-            sentAt: DateTime.now()
+            sentAt: DateTime.now(),
         ),
         NotificationModel.empty().copyWith(
           id: '1',

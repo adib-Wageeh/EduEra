@@ -43,7 +43,7 @@ class TitledInputField extends StatelessWidget {
                              color: Colours.redColour,
 
                            ),
-                         )
+                         ),
                       ],
                 ),),
             if(suffixIcon != null) suffixIcon!,
@@ -65,7 +65,7 @@ class TitledInputField extends StatelessWidget {
           return null;
         },
 
-        )
+        ),
       ],
     );
   }

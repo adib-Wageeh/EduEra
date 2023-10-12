@@ -21,7 +21,7 @@ class ProfileView extends StatelessWidget {
           ),
           children: const [
             ProfileHeader(),
-            ProfileBody()
+            ProfileBody(),
           ],
 
         ),),

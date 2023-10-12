@@ -56,7 +56,7 @@ class AllCoursesView extends StatelessWidget {
                     );
                   }).toList(),
                 ),
-              )
+              ),
 
 
             ],

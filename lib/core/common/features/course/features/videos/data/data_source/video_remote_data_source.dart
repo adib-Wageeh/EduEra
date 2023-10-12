@@ -25,9 +25,9 @@ class VideoRemoteDataSourceImpl implements VideoRemoteDataSource{
   _firestore = firestore
   ;
 
-  FirebaseAuth _auth;
-  FirebaseFirestore _firestore;
-  FirebaseStorage _storage;
+  final FirebaseAuth _auth;
+  final FirebaseFirestore _firestore;
+  final FirebaseStorage _storage;
 
   @override
   Future<void> addVideo(Video video) async{
@@ -57,7 +57,7 @@ class VideoRemoteDataSourceImpl implements VideoRemoteDataSource{
 
       await _firestore.collection('courses').doc(video.courseId)
       .update({
-        'numberOfVideos': FieldValue.increment(1) 
+        'numberOfVideos': FieldValue.increment(1), 
       });
 
 

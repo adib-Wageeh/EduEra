@@ -59,7 +59,7 @@ class ResourcesRemoteDataSourceImpl implements ResourcesRemoteDataSource{
 
       await _firestore.collection('courses')
           .doc(resourcesModel.courseId).update({
-        'numberOfMaterials': FieldValue.increment(1)
+        'numberOfMaterials': FieldValue.increment(1),
       });
 
     }on FirebaseException catch(e){

@@ -81,7 +81,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           {
             Navigator.pushReplacementNamed(context, DashboardScreen.route);
           }else if(state is UserCached){
-            Navigator.pushReplacementNamed(context, '/');
+            Navigator.pushReplacementNamed(context, '/default');
 
           }
         },),

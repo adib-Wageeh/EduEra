@@ -18,6 +18,10 @@ Future<void> init()async{
  await _notificationInit();
 
  await _initMaterial();
+
+ await _initMessage();
+
+ await _initGroups();
 }
 
 Future<void> _courseInit()async{
@@ -162,4 +166,39 @@ Future<void> _initMaterial() async {
     storage: sl(),
     prefs: sl(),
   ),);
+}
+
+Future<void> _initMessage() async {
+  sl
+    ..registerFactory(
+          () => ChatCubit(
+            getMessages: sl(),
+            getUserById: sl(),
+            sendMessage: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => GetMessagesUseCase(chatRepo: sl()))
+    ..registerLazySingleton(() => GetUserByIdUseCase(chatRepo: sl()))
+    ..registerLazySingleton(() => SendMessageUseCase(chatRepo: sl()))
+    ..registerLazySingleton<ChatRepo>(() =>
+        ChatRepoImpl(chatRemoteDataSource: sl()),)
+    ..registerLazySingleton<ChatRemoteDataSource>(
+          () => ChatRemoteDataSourceImpl(
+        firestore: sl(),
+        firebaseAuth: sl(),
+      ),);
+}
+
+Future<void> _initGroups() async {
+  sl
+    ..registerFactory(
+          () => GroupCubit(
+        getGroups: sl(),
+        joinGroup: sl(),
+        leaveGroup: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => GetGroupsUseCase(chatRepo: sl()))
+    ..registerLazySingleton(() => JoinGroupUseCase(chatRepo: sl()))
+    ..registerLazySingleton(() => LeaveGroupUseCase(chatRepo: sl()));
 }

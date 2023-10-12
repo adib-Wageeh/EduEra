@@ -105,7 +105,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                 child: const Text('Take exam'),
                               ),
                             ),
-                          )
+                          ),
                       ],
                     );
                   },

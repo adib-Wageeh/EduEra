@@ -52,7 +52,7 @@ class ChatRepoImpl implements ChatRepo{
         handleData: (data,sink){
           sink.add(Right(data));
         },
-        handleError: (error,_,sink){
+        handleError: (error,stack,sink){
           if(error is ServerException){
             sink.add(Left(ServerFailure.fromException(error)));
           }else{

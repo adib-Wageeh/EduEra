@@ -34,7 +34,7 @@ class _NotificationsViewState extends State<NotificationsView> {
         title: const Text('Notifications'),
         centerTitle: false,
         actions: const [
-          NotificationOptions()
+          NotificationOptions(),
         ],
         leading: const NestedBackButton(),
       ),
@@ -44,7 +44,6 @@ class _NotificationsViewState extends State<NotificationsView> {
             CoreUtils.showSnackBar(context, state.message);
             context.popTab();
           }
-
         },
         builder: (context, state) {
           if (state is GettingNotifications ||

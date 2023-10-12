@@ -130,12 +130,12 @@ class _ExamViewState extends State<ExamView> {
                       fontWeight: FontWeight.w600,
                       color: Colours.redColour,
                     ),
-                    )
+                    ),
                   ],
                 ),
                 actions: [
                   TextButton(onPressed: submitExam, child:
-                  const Text('Submit',style: TextStyle(fontSize: 16),),)
+                  const Text('Submit',style: TextStyle(fontSize: 16),),),
                 ],
               ),
               body: SafeArea(
@@ -215,7 +215,7 @@ class _ExamViewState extends State<ExamView> {
                           ),
                         ],
                       ),),
-                      const ExamNavigationBlob()
+                      const ExamNavigationBlob(),
                     ],
                   ),
                 ),

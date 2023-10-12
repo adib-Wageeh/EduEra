@@ -3,6 +3,13 @@ part of 'router.dart';
 Route<dynamic> generateFunction(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case '/':
+      return _pageBuilder((context) {
+        return const SplashScreen();
+      },
+        settings: routeSettings,
+      );
+
+    case '/default':
       final prefs = sl<SharedPreferences>();
       return _pageBuilder((context) {
         if (prefs.getBool(sharedPrefsKey) ?? true) {

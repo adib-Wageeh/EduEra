@@ -105,7 +105,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       UpdateUserAction.password,
                         data: jsonEncode({
                           'oldPassword':oldPasswordController.text.trim(),
-                        'newPassword':passwordController.text.trim()}),),
+                        'newPassword':passwordController.text.trim(),}),),
                     );
                 }
                 if(nameChanged){
@@ -220,7 +220,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                   emailController: emailController,
                   oldPasswordController: oldPasswordController,
                   passwordController: passwordController,
-                )
+                ),
               ],
             )
               ,),

@@ -41,9 +41,9 @@ class ExamDetailsRow extends StatelessWidget {
                 fontSize: 12,
                 color: Colours.neutralTextColour,
               ),
-            )
+            ),
           ],
-        )
+        ),
 
       ],
     );

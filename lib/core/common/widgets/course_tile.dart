@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CourseTile extends StatelessWidget {
   const CourseTile({
     required this.onPressed,
-    required this.course,super.key});
+    required this.course,super.key,});
   final Course course;
   final VoidCallback onPressed;
 

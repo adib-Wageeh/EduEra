@@ -5,8 +5,11 @@ import 'package:education_app/core/enums/notification.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/src/chat/domain/entities/group.dart';
+import 'package:education_app/src/chat/domain/entities/message.dart';
 import 'package:education_app/src/notification/data/models/notification_model.dart';
 import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,9 +67,9 @@ class CoreUtils{
     }
     return CachedNetworkImage(
       imageUrl: image,
-      height: dimensions.w,
-      width: dimensions.h,
-      fit: BoxFit.cover,
+      height: dimensions.h,
+      width: dimensions.w,
+      fit: BoxFit.fitHeight,
     );
   }
 
@@ -81,6 +84,31 @@ class CoreUtils{
         category: category,
       ),
     );
+  }
+
+  static List<Group> getJoinedGroups(List<Group> groups){
+    return groups.where((group) =>
+      group.members.contains(sl<FirebaseAuth>().currentUser!.uid),).toList();
+  }
+
+  static List<Group> getOtherGroups(List<Group> groups){
+    return groups.where((group) =>
+        !group.members.contains(sl<FirebaseAuth>().currentUser!.uid),)
+        .toList();
+  }
+
+  static bool showSenderInfo(MessageEntity current,MessageEntity? prev
+      ,MessageEntity? next, int length,){
+    if(next == null){
+        return true;
+    }else if(prev != null && prev.senderId == current.senderId
+        && current.senderId != next.senderId){
+      return true;
+    }else if(prev != null && prev.senderId != current.senderId
+        && current.senderId != next.senderId){
+      return true;
+    }
+    return false;
   }
 
 }

@@ -1,7 +1,4 @@
 import 'package:education_app/core/res/media_res.dart';
-import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
-import 'package:youtube_metadata/youtube_metadata.dart';
 
 extension StringExtensions on String{
 

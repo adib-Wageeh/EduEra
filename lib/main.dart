@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
             create: (_)=> NotificationsNotifier(sl<SharedPreferences>()),),
         ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           theme: ThemeData(
             visualDensity: VisualDensity.adaptivePlatformDensity,
             useMaterial3: true,

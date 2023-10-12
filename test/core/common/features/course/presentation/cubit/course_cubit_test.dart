@@ -50,7 +50,7 @@ group('add course', () {
    act: (cubit)=> cubit.addCourse(tCourse),
    expect: ()=> <CourseState>[
      const AddingCourse(),
-     const CourseAdded()
+     const CourseAdded(),
    ],
     verify: (_){
       verify(()=>addCourseUseCase.call(tCourse)).called(1);
@@ -70,7 +70,7 @@ group('add course', () {
     act: (cubit)=> cubit.addCourse(tCourse),
     expect: ()=> <CourseState>[
       const AddingCourse(),
-      CourseError(tServerFailure.error)
+      CourseError(tServerFailure.error),
     ],
     verify: (_){
       verify(()=>addCourseUseCase.call(tCourse)).called(1);

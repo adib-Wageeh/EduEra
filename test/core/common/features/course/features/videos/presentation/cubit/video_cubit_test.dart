@@ -54,7 +54,7 @@ void main() {
       act: (cubit)async=> cubit.addVideo(tVideo),
       expect: ()=>const<VideoState>[
         AddingVideo(),
-        VideoAdded()
+        VideoAdded(),
       ],
       verify: (_){
         verify(()=>addVideoUseCase(tVideo)).called(1);
@@ -72,7 +72,7 @@ void main() {
       act: (cubit) async=> cubit.addVideo(tVideo),
       expect: ()=><VideoState>[
         const AddingVideo(),
-        VideoError(tFailure.errorMessage)
+        VideoError(tFailure.errorMessage),
       ],
       verify: (_){
         verify(()=>addVideoUseCase(tVideo)).called(1);
@@ -94,7 +94,7 @@ void main() {
       act: (cubit)async=> cubit.getVideos('course_id'),
       expect: ()=>const<VideoState>[
         LoadingVideos(),
-        VideosLoaded([])
+        VideosLoaded([]),
       ],
       verify: (_){
         verify(()=>getVideosUseCase('course_id')).called(1);
@@ -112,7 +112,7 @@ void main() {
       act: (cubit) async=> cubit.getVideos('course_id'),
       expect: ()=><VideoState>[
         const LoadingVideos(),
-        VideoError(tFailure.errorMessage)
+        VideoError(tFailure.errorMessage),
       ],
       verify: (_){
         verify(()=>getVideosUseCase('course_id')).called(1);

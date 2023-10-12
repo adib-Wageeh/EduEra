@@ -13,7 +13,8 @@ class MessageModel extends MessageEntity{
         id: map['id'] as String,
         senderId: map['senderId'] as String,
         groupId: map['groupId'] as String,
-        timeStamp: (map['timeStamp'] as Timestamp).toDate(),);
+        timeStamp:  (map['timestamp'] as Timestamp?)?.toDate() ??
+            DateTime.now(),);
   }
 
   factory MessageModel.empty(){

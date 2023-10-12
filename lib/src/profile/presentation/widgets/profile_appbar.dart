@@ -77,7 +77,7 @@ class AppBarWidget extends StatelessWidget
                 final navigator = Navigator.of(context);
                 await sl<FirebaseAuth>().signOut();
                 unawaited(navigator.pushNamedAndRemoveUntil
-                  ( '/', (route) => false),);
+                  ( '/default', (route) => false),);
               },
             ),
              ],
@@ -89,4 +89,3 @@ class AppBarWidget extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-

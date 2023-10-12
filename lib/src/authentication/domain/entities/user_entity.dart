@@ -37,6 +37,6 @@ class UserEntity extends Equatable{
   @override
   List<Object?> get props => [uiD,email,
   profilePic,bio,points,fullName,joinedGroupsIds,
-    enrolledCoursesIds,following,followed];
+    enrolledCoursesIds,following,followed,];
 
 }

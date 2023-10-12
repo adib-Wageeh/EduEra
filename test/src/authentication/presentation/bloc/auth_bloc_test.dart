@@ -75,7 +75,7 @@ void main() {
       ),),
       expect: ()=>[
         const AuthLoading(),
-        SignedIn(user: tUser)
+        SignedIn(user: tUser),
       ],
       verify: (_){
         verify(()=> signInUseCase(tSignInParams)).called(1);
@@ -99,7 +99,7 @@ void main() {
         const AuthLoading(),
         AuthError(
           errorMessage: tServerFailure.error,
-        )
+        ),
       ],
       verify: (_){
         verify(()=> signInUseCase(tSignInParams)).called(1);
@@ -153,7 +153,7 @@ void main() {
         const AuthLoading(),
         AuthError(
           errorMessage: tServerFailure.error,
-        )
+        ),
       ],
       verify: (_){
         verify(()=> signUpUseCase(tSignUpParams)).called(1);
@@ -179,7 +179,7 @@ void main() {
       ),),
       expect: ()=>const[
         AuthLoading(),
-        ForgetPasswordSent()
+        ForgetPasswordSent(),
       ],
     );
 
@@ -199,7 +199,7 @@ void main() {
         const AuthLoading(),
         AuthError(
           errorMessage: tServerFailure.error,
-        )
+        ),
       ],
     );
 
@@ -222,7 +222,7 @@ void main() {
       ),),
       expect: ()=>const[
         AuthLoading(),
-        UserUpdated()
+        UserUpdated(),
       ],
     );
 
@@ -243,7 +243,7 @@ void main() {
         const AuthLoading(),
         AuthError(
           errorMessage: tServerFailure.error,
-        )
+        ),
       ],
     );
 

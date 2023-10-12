@@ -31,9 +31,8 @@ class CourseDetailsScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: context.height*0.3,
-                child: Center(
-                  child: CoreUtils.imageType(course.image!,
-                  dimensions: context.height*0.25,),
+                child: CoreUtils.imageType(course.image!,
+                dimensions: context.height*0.25,
                 ),
               ),
               const SizedBox(
@@ -105,10 +104,10 @@ class CourseDetailsScreen extends StatelessWidget {
                           ),
                         ],
 
-                      ]
+                      ],
 
                 ],
-              )
+              ),
             ],
           ),),),
     );

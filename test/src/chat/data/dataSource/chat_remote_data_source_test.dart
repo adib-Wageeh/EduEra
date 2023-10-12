@@ -16,7 +16,6 @@ void main() {
   late FakeFirebaseFirestore fireStore;
   late MockFirebaseAuth auth;
   late ChatRemoteDataSource chatRemoteDataSource;
-  final tGroup = GroupModel.empty();
 
   setUp(()async {
     fireStore = FakeFirebaseFirestore();
@@ -314,19 +313,18 @@ void main() {
 
 
           final groupDoc = await fireStore.collection('groups')
-              .doc(expectedGroups[0].id).collection('messages')
-              .get();
+              .doc(expectedGroups[0].id).get();
 
           final user = await chatRemoteDataSource
               .getUserById(auth.currentUser!.uid);
 
 
-          expect(groupDoc.docs[0].data()['lastMessage']
+          expect(groupDoc.data()!['lastMessage']
             ,message.message ,);
-          expect((groupDoc.docs[0].data()['lastMessageTimeStamp'] as Timestamp)
+          expect((groupDoc.data()!['lastMessageTimeStamp'] as Timestamp)
               .toDate()
             ,message.timeStamp ,);
-          expect(groupDoc.docs[0].data()['lastMessageSenderName']
+          expect(groupDoc.data()!['lastMessageSenderName']
             ,user.fullName ,);
 
         });

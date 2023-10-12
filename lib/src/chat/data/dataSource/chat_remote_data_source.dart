@@ -75,7 +75,7 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource{
 
       final notificationStream = _firestore.collection('groups')
           .doc(groupId).collection('messages')
-          .orderBy('timeStamp').snapshots()
+          .orderBy('timeStamp',descending: true).snapshots()
           .map((messages)=> messages.docs.map((message) {
         return MessageModel.fromMap(message.data());
       }).toList(),);
@@ -149,7 +149,7 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource{
     }on FirebaseException catch(e){
       throw ServerException
         (code: e.code,error: e.message??'unknown error occurred');
-    } on ServerException catch(e){
+    } on ServerException{
       rethrow;
     }catch(e){
       throw ServerException
@@ -179,7 +179,7 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource{
     }on FirebaseException catch(e){
       throw ServerException
         (code: e.code,error: e.message??'unknown error occurred');
-    } on ServerException catch(e){
+    } on ServerException{
       rethrow;
     }catch(e){
       throw ServerException
@@ -197,17 +197,18 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource{
           (code: '401', error: 'user is not authenticated');
       }
 
-     final messageDoc = await _firestore.collection('groups')
-        .doc(message.groupId).collection('messages')
-        .add( (message as MessageModel).toMap());
+     final messageDoc =  _firestore.collection('groups')
+        .doc(message.groupId).collection('messages').doc();
+      final messageToUpload =
+      (message as MessageModel).copyWith(id: messageDoc.id,);
+      await messageDoc.set(messageToUpload.toMap());
 
       final userModel = await getUserById(_auth.currentUser!.uid);
       await _firestore.collection('groups')
-          .doc(message.groupId).collection('messages')
-          .doc(messageDoc.id).update(
+          .doc(message.groupId).update(
         {
           'lastMessage': message.message,
-          'lastMessageTimeStamp': Timestamp.fromDate(message.timeStamp),
+          'lastMessageTimeStamp': message.timeStamp,
           'lastMessageSenderName': userModel.fullName,
         });
 
@@ -217,6 +218,7 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource{
     } on ServerException{
       rethrow;
     }catch(e){
+
       throw ServerException
         (code: '505',error: e.toString());
     }

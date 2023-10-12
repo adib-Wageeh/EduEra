@@ -221,7 +221,7 @@ class ExamRemoteDataSourceImpl implements ExamRemoteDataSource{
         await _firestore.collection('users').doc(_auth.currentUser!.uid)
         .update(
           {
-            'enrolledCoursesIds': FieldValue.arrayUnion([exam.courseId])
+            'enrolledCoursesIds': FieldValue.arrayUnion([exam.courseId]),
           }
         );
       }
@@ -339,7 +339,7 @@ class ExamRemoteDataSourceImpl implements ExamRemoteDataSource{
       }
       await _firestore.collection('courses')
           .doc(exam.courseId).update({
-        'numberOfExams': FieldValue.increment(1)
+        'numberOfExams': FieldValue.increment(1),
       });
 
     }on FirebaseException catch(e){

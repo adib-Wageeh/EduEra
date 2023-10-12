@@ -132,7 +132,7 @@ class ProfileBody extends StatelessWidget {
               onPressed: (){
                 Navigator.pushNamed(context, AddExamView.route);
               },
-            )
+            ),
 
             ],
           // ],

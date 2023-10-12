@@ -50,6 +50,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   swipe_to: ^1.0.2
   step_progress_indicator: ^1.0.2
+  shimmer: ^3.0.0
   url_launcher: ^6.1.14
   uuid: ^3.0.6
   youtube_metadata: ^1.0.1

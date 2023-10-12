@@ -22,7 +22,7 @@ class QuickAccessAppBar extends StatelessWidget {
               Image.asset(MediaRes.user,).image,
             ),
           );
-        },)
+        },),
       ],
     );
   }

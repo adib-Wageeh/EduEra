@@ -39,7 +39,7 @@ void main() {
       act: (cubit) =>cubit.cacheFirstTime(),
       expect: () => <OnBoardingState>[
         const CachingFirstTime(),
-        const UserCached()
+        const UserCached(),
       ],
     );
 
@@ -55,7 +55,7 @@ void main() {
       act: (cubit) =>cubit.cacheFirstTime(),
       expect: () => <OnBoardingState>[
         const CachingFirstTime(),
-        OnBoardingError(message: tFailure.error)
+        OnBoardingError(message: tFailure.error),
       ],
     );
 
@@ -75,7 +75,7 @@ void main() {
       act: (cubit) =>cubit.checkIfUserIsFirst(),
       expect: () => <OnBoardingState>[
         const CheckingIfUserFirstTime(),
-        const OnBoardingStatus(isFirstTime: true)
+        const OnBoardingStatus(isFirstTime: true),
       ],
     );
 
@@ -91,7 +91,7 @@ void main() {
       act: (cubit) =>cubit.checkIfUserIsFirst(),
       expect: () => <OnBoardingState>[
         const CheckingIfUserFirstTime(),
-        const OnBoardingStatus(isFirstTime: true)
+        const OnBoardingStatus(isFirstTime: true),
       ],
     );
 

@@ -32,7 +32,7 @@ class TinderProvider extends ChangeNotifier{
       if (_courses.length < 3) {
         _courses..add(_courses[_index])..add(_courses[_index + 1]);
         _colorsList..add(TinderCardsColors.tinderRandomColors())..add(
-            TinderCardsColors.tinderRandomColors());
+            TinderCardsColors.tinderRandomColors(),);
         _index = _index + 1;
       } else {
         _courses.add(_courses[_index]);

@@ -160,9 +160,9 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                   const SizedBox(height: 20,),
                   Expanded(child: ElevatedButton(
                       onPressed: ()=>Navigator.pop(context),
-                      child: const Text('Cancel'),),)
+                      child: const Text('Cancel'),),),
                 ],
-              )
+              ),
             ],
           ),
         )

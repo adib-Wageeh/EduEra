@@ -114,7 +114,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
             ),onPressed: (){
             Navigator.pushNamed(context, ExamView.route,);
             },
-                child: const Text('Start Exam',),)
+                child: const Text('Start Exam',),),
 
           ],
 

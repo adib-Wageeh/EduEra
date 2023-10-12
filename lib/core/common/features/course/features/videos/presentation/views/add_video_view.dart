@@ -186,7 +186,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                     const SizedBox(height: 20,),
                     ElevatedButton(onPressed: fetchVideo,
                         child: const Text('Fetch Video'),),
-                  ]
+                  ],
                 ],
               );
             },),

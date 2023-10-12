@@ -29,6 +29,7 @@ import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:education_app/src/on_boarding/presentation/views/on_boarding_screen.dart';
+import 'package:education_app/src/on_boarding/presentation/views/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' as fui;
 import 'package:flutter/material.dart';

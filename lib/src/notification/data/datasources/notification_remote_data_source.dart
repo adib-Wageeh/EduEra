@@ -202,7 +202,7 @@ class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource{
         .doc(user.uid).collection('notifications')
         .doc(notificationId).update
         ({
-        'seen': true
+        'seen': true,
       });
     }on FirebaseException catch(e){
       throw ServerException
