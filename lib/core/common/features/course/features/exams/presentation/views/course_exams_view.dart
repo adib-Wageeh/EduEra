@@ -62,7 +62,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                           Card(
                             margin: const EdgeInsets.all(4)
                              .copyWith(bottom: 30),
-                            child: Padding(padding: const EdgeInsets.all(10),
+                            child: Padding(padding: const EdgeInsets.all(18),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -86,7 +86,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                           Positioned(
                             left: 0,
                             right: 0,
-                            bottom: 0,
+                            bottom: -5,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -109,6 +109,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                       ],
                     );
                   },
+                  itemCount: state.exams.length,
                 ),
             );
 

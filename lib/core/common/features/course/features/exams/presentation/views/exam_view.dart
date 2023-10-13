@@ -99,12 +99,13 @@ class _ExamViewState extends State<ExamView> {
           if(loading){
             loading = false;
             Navigator.pop(context);
-          }else if(state is ExamError){
+          }
+          if(state is ExamError){
             CoreUtils.showSnackBar(context, state.message);
           }else if(state is SubmittingExam){
             loading = true;
             CoreUtils.showLoadingDialog(context);
-          }else if(State is ExamSubmitted){
+          }else if(state is ExamSubmitted){
             CoreUtils.showSnackBar(context, 'Exam submitted successfully');
             Navigator.pop(context);
           }
@@ -139,7 +140,6 @@ class _ExamViewState extends State<ExamView> {
                 ],
               ),
               body: SafeArea(
-
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -153,28 +153,6 @@ class _ExamViewState extends State<ExamView> {
                               color: Color(0xFF666E7A),
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFC4C4C4),
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Center(
-                              child: controller.exam.imageUrl == null
-                                  ? Image.asset(
-                                MediaRes.test,
-                                height: 200,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              )
-                                  : Image.network(
-                                controller.exam.imageUrl!,
-                                height: 200,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
                             ),
                           ),
                           const SizedBox(height: 20),

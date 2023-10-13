@@ -1,0 +1,140 @@
+{
+  "title":"beginners exam",
+  "Description":"this exam is for beginners who has experience less than 3 months",
+  "time_seconds":60,
+  "image_url": "",
+  "questions":[
+    {
+      "question": "Which one is a flutter widget type",
+      "correct_answer": "D",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"StateWithWidget"
+        },
+        {
+          "identifier":"B",
+          "Answer":"StateLessWidget"
+        },
+        {
+          "identifier":"C",
+          "Answer":"StateFullWidget"
+        },
+        {
+          "identifier":"D",
+          "Answer":"both B and C"
+        }
+      ]
+    },
+    {
+      "question": "Which programming language is used to build Flutter applications?",
+      "correct_answer": "B",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"Kotlin"
+        },
+        {
+          "identifier":"B",
+          "Answer":"Dart"
+        },
+        {
+          "identifier":"C",
+          "Answer":"Java"
+        },
+        {
+          "identifier":"D",
+          "Answer":"GO"
+        }
+      ]
+    },
+    {
+      "question": "Who developed the Flutter Framework and continues to maintain it today?",
+      "correct_answer": "C",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"Facebook"
+        },
+        {
+          "identifier":"B",
+          "Answer":"Microsoft"
+        },
+        {
+          "identifier":"C",
+          "Answer":"Google"
+        },
+        {
+          "identifier":"D",
+          "Answer":"Oracle"
+        }
+      ]
+    },
+    {
+      "question": "Access to a cloud database through Flutter is available through which service?",
+      "correct_answer": "B",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"SQLite"
+        },
+        {
+          "identifier":"B",
+          "Answer":"Firebase Database"
+        },
+        {
+          "identifier":"C",
+          "Answer":"NOSQL"
+        },
+        {
+          "identifier":"D",
+          "Answer":"MYSQL"
+        }
+      ]
+    },
+    {
+      "question": "What element is used as an identifier for components when programming in Flutter?",
+      "correct_answer": "A",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"Widgets"
+        },
+        {
+          "identifier":"B",
+          "Answer":"Keys"
+        },
+        {
+          "identifier":"C",
+          "Answer":"Elements"
+        },
+        {
+          "identifier":"D",
+          "Answer":"Serial"
+        }
+      ]
+    },
+    {
+      "question": "Which function will return the widgets attached to the screen as a root of the widget tree to be rendered on screen?",
+      "correct_answer": "B",
+      "answers": [
+        {
+          "identifier":"A",
+          "Answer":"main()"
+        },
+        {
+          "identifier":"B",
+          "Answer":"runApp()"
+        },
+        {
+          "identifier":"C",
+          "Answer":"container()"
+        },
+        {
+          "identifier":"D",
+          "Answer":"root()"
+        }
+      ]
+    }
+  ]
+}

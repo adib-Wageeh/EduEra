@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class QuickAccessAppBar extends StatelessWidget {
             child: CircleAvatar(
               radius: 30,
               backgroundImage:
-              user.profilePic != null ? NetworkImage(user.profilePic!):
+              user.profilePic != null ? CachedNetworkImageProvider
+                (user.profilePic!):
               Image.asset(MediaRes.user,).image,
             ),
           );

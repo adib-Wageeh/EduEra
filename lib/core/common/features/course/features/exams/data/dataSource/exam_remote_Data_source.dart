@@ -323,9 +323,9 @@ class ExamRemoteDataSourceImpl implements ExamRemoteDataSource{
 
           final choices = <QuestionChoiceModel>[];
 
-          for(final choice in question.choices){
+          for(var choice in question.choices){
 
-            (choice as QuestionChoiceModel).copyWith(
+            choice = (choice as QuestionChoiceModel).copyWith(
               questionId: questionRefDoc.id,
             );
             choices.add(choice);

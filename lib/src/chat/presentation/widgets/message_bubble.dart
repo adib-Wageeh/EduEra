@@ -10,10 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MessageBubble extends StatefulWidget {
-  const MessageBubble(this.message, {required this.showSenderInfo, super.key});
+  const MessageBubble(this.message, {required this.showSenderInfo
+    ,required this.isLast, super.key});
 
   final MessageEntity message;
   final bool showSenderInfo;
+  final bool isLast;
 
   @override
   State<MessageBubble> createState() => _MessageBubbleState();
@@ -53,8 +55,9 @@ class _MessageBubbleState extends State<MessageBubble> {
         }
       },
       child: Container(
-        constraints: BoxConstraints(maxWidth: context.width - 45),
-        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        constraints: BoxConstraints(maxWidth:
+        MediaQuery.of(context).size.width - 150,),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment:
           isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
@@ -96,18 +99,30 @@ class _MessageBubbleState extends State<MessageBubble> {
             Container(
               margin: EdgeInsets.only(top: 4, left: isCurrentUser ? 0 : 20),
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              constraints: BoxConstraints(maxWidth:
+              MediaQuery.of(context).size.width - 70,),
               decoration: BoxDecoration(
                 borderRadius: isCurrentUser?
                     const BorderRadius.only(
                       bottomLeft: Radius.circular(16),
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16),
-                    ):
+                    ) :
+                    (widget.isLast)?
                     const BorderRadius.only(
                       bottomLeft: Radius.circular(16),
                       bottomRight: Radius.circular(16),
                       topRight: Radius.circular(16),
-                    ),
+                    ):(widget.showSenderInfo)?
+                    const BorderRadius.only(
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ) : const BorderRadius.only(
+                      bottomRight: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    )
+                ,
                 color: isCurrentUser
                     ? Colours.currentUserChatBubbleColour
                     : Colours.otherUserChatBubbleColour,

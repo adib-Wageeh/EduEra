@@ -23,7 +23,7 @@ class QuickAccessExamTile extends StatelessWidget {
     ,child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height*0.09,
+          height: MediaQuery.of(context).size.height*0.12,
           child: Row(
             children: [
               Container(

@@ -1,8 +1,8 @@
 import 'package:education_app/core/common/features/course/domain/entities/course_entity.dart';
 import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
-import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/course_tile.dart';
 import 'package:education_app/core/common/widgets/not_found_text.dart';
+import 'package:education_app/src/quick_access/presentation/widgets/shimmers/course_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,7 @@ class QuickAccessCourseListView extends StatelessWidget {
     return BlocBuilder<CourseCubit,CourseState>(
       builder: (context,state){
         if(state is LoadingCourses){
-          return const LoadingView();
+          return const CourseShimmer();
         }else if(state is CoursesLoaded && state.courses.isEmpty){
           return const NotFoundText(
             text: 'No Courses Found',

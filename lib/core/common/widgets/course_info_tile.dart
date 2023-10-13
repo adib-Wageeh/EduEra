@@ -15,6 +15,7 @@ class CourseInfoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
+      behavior: HitTestBehavior.opaque,
       child: Row(
         children: [
           SizedBox(

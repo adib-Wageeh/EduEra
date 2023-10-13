@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/nested_back_button.dart';
-import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/notification/presentation/cubit/notification_cubit.dart';
@@ -25,6 +24,7 @@ class _NotificationsViewState extends State<NotificationsView> {
     context.read<NotificationCubit>().getNotifications();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,21 +33,23 @@ class _NotificationsViewState extends State<NotificationsView> {
         backgroundColor: Colors.white,
         title: const Text('Notifications'),
         centerTitle: false,
-        actions: const [
-          NotificationOptions(),
+        actions: [
+          BlocProvider(
+            create: (_) => sl<NotificationCubit>(),
+            child: const NotificationOptions(),
+          ),
         ],
         leading: const NestedBackButton(),
       ),
       body: BlocConsumer<NotificationCubit, NotificationState>(
-        listener: (_, state) {
+        listener: (context, state) {
           if (state is NotificationError) {
             CoreUtils.showSnackBar(context, state.message);
-            context.popTab();
           }
+
         },
         builder: (context, state) {
-          if (state is GettingNotifications ||
-              state is ClearingNotifications) {
+          if (state is GettingNotifications) {
             return const LoadingView();
           } else
           if (state is NotificationsLoaded && state.notifications.isEmpty) {

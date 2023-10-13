@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/res/colours.dart';
@@ -19,7 +20,7 @@ class ProfileHeader extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundImage: 
-              image != null ? NetworkImage(image):
+              image != null ? CachedNetworkImageProvider(image):
               const AssetImage(MediaRes.user) as ImageProvider,
             ),
             const SizedBox(height: 16,),

@@ -33,10 +33,7 @@ class _AddExamViewState extends State<AddExamView> {
 
   Future<void> pickExamFile()async{
 
-    final files = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['json'],
-    );
+    final files = await FilePicker.platform.pickFiles();
     if(files != null){
       setState(() {
         examFile = File(files.paths.first!);
@@ -77,12 +74,13 @@ class _AddExamViewState extends State<AddExamView> {
             if(loading){
               loading = false;
               Navigator.of(context).pop();
-            }else if(state is ExamError){
+            }
+            if(state is ExamError){
               CoreUtils.showSnackBar(context, state.message);
-            }else if(state is SubmittingExam){
+            }else if(state is UploadingExam){
               loading = true;
               CoreUtils.showLoadingDialog(context);
-            }else if(state is ExamSubmitted){
+            }else if(state is ExamUploaded){
               CoreUtils.showSnackBar(context, 'Exam added successfully');
               CoreUtils.sendNotification(
                   'New Exam has been added !!',

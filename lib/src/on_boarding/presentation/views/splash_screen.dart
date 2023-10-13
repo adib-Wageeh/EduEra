@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward().then((value) {
       _controller.animateBack(0,duration:  const Duration(milliseconds: 1000))
           .then((_){
-        Navigator.pushNamed(context, '/default');
+        Navigator.pushReplacementNamed(context, '/default');
       });
     }); // Start the animation
   }

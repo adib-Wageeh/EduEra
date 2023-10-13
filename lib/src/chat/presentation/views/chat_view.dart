@@ -75,7 +75,9 @@ class _ChatViewState extends State<ChatView> {
                       return BlocProvider(
                         create: (_) => sl<ChatCubit>(),
                         child: MessageBubble(
-                          current, showSenderInfo: showSenderInfo,),
+                        isLast: (prev != null && prev.senderId !=
+                        current.senderId)? true : false
+                        ,current, showSenderInfo: showSenderInfo,),
                       );
                     },
                       itemCount: state.messages.length,

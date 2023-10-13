@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/src/home/presentation/widget/notification_bell.dart';
@@ -21,7 +22,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
           child: CircleAvatar(
             radius: 24,
             backgroundImage: (provider.user!.profilePic != null)?
-            NetworkImage(provider.user!.profilePic!):
+            CachedNetworkImageProvider(provider.user!.profilePic!):
                 const AssetImage(MediaRes.user) as ImageProvider
             ,),
           );

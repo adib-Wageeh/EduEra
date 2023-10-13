@@ -86,7 +86,7 @@ class ProfileBody extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            // if(user.isAdmin) ...[
+            if(user.email == 'adibwageeh2@gmail.com') ...[
               AdminButton(
                 label: 'Add Course',
                 icon: IconlyLight.paper_upload,
@@ -135,7 +135,7 @@ class ProfileBody extends StatelessWidget {
             ),
 
             ],
-          // ],
+          ],
         );
       },
     );

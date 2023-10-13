@@ -1,6 +1,5 @@
 import 'package:education_app/core/common/app/providers/course_of_the_day_notifier.dart';
 import 'package:education_app/core/common/features/course/features/videos/presentation/cubit/video_cubit.dart';
-import 'package:education_app/core/common/views/loading_view.dart';
 import 'package:education_app/core/common/widgets/not_found_text.dart';
 import 'package:education_app/core/common/widgets/video_tile.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
@@ -43,7 +42,7 @@ class _HomeVideosState extends State<HomeVideos> {
       },
       builder: (context, state) {
         if (state is LoadingVideos) {
-          return const LoadingView();
+          return const SizedBox.shrink();
         } else if ((state is VideosLoaded && state.videos.isEmpty) ||
             state is VideoError) {
           return NotFoundText(
