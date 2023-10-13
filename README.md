@@ -52,3 +52,10 @@ Main features
 ![Screenshot_20231013_051146](https://github.com/adib-Wageeh/EduEra/assets/87152219/d7bbf899-7cfa-4aeb-b598-4dc4d17f0c45)
 
 
+![Screenshot_20231013_054032](https://github.com/adib-Wageeh/EduEra/assets/87152219/f1dc63ae-5004-44cc-924f-05b1e7c8f10c)
+![Screenshot_20231013_053608](https://github.com/adib-Wageeh/EduEra/assets/87152219/d859f128-ed0e-46d7-b741-d664dfe2dfa6)
+
+
+![Screenshot_20231013_054024](https://github.com/adib-Wageeh/EduEra/assets/87152219/f56245c3-cf39-4ea2-95f1-834c92c37126)
+
+
